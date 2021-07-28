@@ -16,6 +16,17 @@
 # read -a names
 # echo "The names are: ${names[0]}, ${names[1]}"
 
-echo "enter names"
-read
-echo "names : $REPLY"
+# echo "enter names"
+# read
+# echo "names : $REPLY"
+
+# Arguments
+echo $0 $1 $2 $3 '> echo $0 $1 $2 $3'
+
+args=("$@")
+
+# echo ${args[0]} ${args[1]} ${args[2]}
+
+echo 'The argurments passed are: ' $@
+
+echo 'The number of arguments passed is ' $#

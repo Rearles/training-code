@@ -54,3 +54,6 @@
 	- **User Defined (UDF) Variables**
 	- A-Z, a-z, 0-9, _
 	- A variable name should either start with an alphbet or _
+
+## Arguments in Shell Script
+- We can pass arguments in the Shell Script while execution.
