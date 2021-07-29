@@ -78,7 +78,7 @@
 - Conditionals let us decide whether to perform an action or not, this decision is taken by evaluating an expression.
 
 ### Expressions 
-An expression can be: String comparison, Numeric comparison, File operators and Logical operators and it is represented by [expression]:
+An expression can be: String comparison, Numeric comparison, Boolean comparison, File operators and Logical operators and it is represented by [expression]:
 #### String Comparisons:  
 ---------------------------------
 - =  compare if two strings are equal
