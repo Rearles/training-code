@@ -13,3 +13,10 @@ This activity will be in pait programming way, where the break out rooms will be
 5. Make Pull request to your partners Hello.sh file 
 6. Partners will review each others Hello.sh file and partners can comment or suggest any other ways to write the above program.
 
+## Fizzbuzz activity
+- w.a.p. in shell scripting with following conditions:
+    - for a nummber between 1 to 20, print **fizz** if a number is divisible by 3 
+    - print **buzz** if the number is divisible by 5
+    - print **fizzbuzz** if the number is divisible by both 3 and 5
+    - print nothing if the number isn't divisible by 3 or 5.
+- create the file by name fizzbuzz.sh and push it to your repo. 
