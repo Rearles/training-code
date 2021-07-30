@@ -78,19 +78,19 @@ do
     case $lang in
         C)
             echo C programming language has been selected
-            ;;
+            break;;
         C#)
             echo C# programming language has been selected
-            ;;
+            break;;
         Java)
             echo Java programming language has been selected
-            ;;
+            break;;
         Python)
             echo Python programming language has been selected
-            ;;
+            break;;
         Ruby)
             echo Ruby programming language has been selected
-            ;;
+            break;;
         *)
             echo " Error! Please selected choices between 1 to 5"
     esac
