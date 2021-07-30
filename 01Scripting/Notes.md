@@ -109,3 +109,22 @@ An expression can be: String comparison, Numeric comparison, Boolean comparison,
 - `[ n1 -ne n2 ]`  (true if n1 is not same as n2, else false)
 - `[ n1 -gt n2 ]`  (true if n1 greater than n2, else false)
 - `[ n1 -lt n2 ]`  (true if n1 less than n2, else false)
+
+## Arrays
+- An array is a variable containing multiple values. 
+- Any variable may be used as an array. 
+- There is no maximum limit to the size of an array, nor any requirement that member variables be indexed or assigned contiguously. 
+- Arrays are zero-based: the first element is indexed with the number 0.
+
+## Looping
+- Loop is a block of code that is repeated a number of times. 
+- The repeating is performed either a pre-determined number of times until a particular condition is satisfied ( `while` and `until` loops)
+- To provide flexibility to the loop constructs there are also two statements namely `break` and `continue` are provided.
+- The `until` structure is very similar to the while structure. The until structure loops until the condition is true. So basically it is “until this condition is true, do this” or “when the resulting value is false, given statement(s) are executed”.
+- `for` Loops: Sometimes we want to run a command (or group of commands) over and over. This is called *iteration, repetition, or looping*. The most commonly used shell repetition structure is the for loop, which has the general form:
+``` 
+for variable in list
+do
+  command(s) 
+done
+```
