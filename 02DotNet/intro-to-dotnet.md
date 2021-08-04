@@ -1,24 +1,31 @@
 # Welcome to .NET
 
 ## What is .NET?
-.NET is an open source developer platform created by Microsoft. It's for building many different types of apps, such as web apps, desktop apps, and games.
-In short, .NET Platform is a collection of languages, libraries, and frameworks to make various applications, developed under one common standard.
+- .NET is an open source developer platform created by Microsoft. It's for building many different types of apps, such as web apps, desktop apps, games, api, smart phones apps....
+- In short, .NET Platform is a collection of **languages**, **libraries**, and **frameworks** to make various applications, developed under one common standard.
+- With .Net platform you can build your app, test app, deploy the app and maintain. This is why .Net caters mostly all phases of SDLC.
 
 ## Supported Programming Languages
-3 different languages
-- C#: Object oriented, type safe language
+- Dozens of programming languages are supported by .Net provided they are compatible with the platform, [listed.](https://en.wikipedia.org/wiki/List_of_CLI_languages)
+- 3 different languages which are by default supported by .Net are
+- C#: Object oriented, type safe language and is case sensitive
     - object oriented means, that everything is an object. These objects are further organized with classes
     - Type-safe means that once you declare a type of a variable, you can't really change it. 
-- Visual Basic
+- Visual Basic : Supports UI and component oriented language.
 - F#: F# is a functional programming language supported by .NET
+- All .Net compliant languages ahve to follow a Standard. These standard are defined by CLS (Common Language Specification).
+  - CLS gives a set of rules and regulation a .Net compliant language should follow. Ex all .Net compliant languages should be OOP languages, Array index should start from 0 etc...
 
 ## Technologies we'll be using during this training
 - .NET 5 and C#
-- SQL 
+- SQL (Sql Server)
 - ASP.NET Core for creating web applications
-- Azure Cloud Service for hosting and DevOps
-- Javascript, Typescript, HTML, CSS, and Angular for frontend
+- Azure Cloud Service for hosting
+- Javascript, Typescript, HTML, CSS, jQuery and Angular for frontend
 
+## [History of .Net](https://docs.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs)
+- Microsoft introduced .Net 1.0 (deprecated) in 2002. It was known as .Net Framework
+  
 ## .NET Implementation
 4 main implementation of .NET 
 - **.NET Framework**: first implementation of .NET, only works on windows, and it is shipped with every windows.
@@ -29,7 +36,7 @@ In short, .NET Platform is a collection of languages, libraries, and frameworks 
     - .NET runtime that power Xamarin application. 
     - useful when small footprint is needed
     - also powers games built with Unity
-- **Universal Windwos Platform (UWP)**
+- **Universal Windows Platform (UWP)**
     - Used for building modern, touch-enabled Windows applications and software for the Internet of Things (IoT). 
     - It's designed to unify the different types of devices that you may want to target, including PCs, tablets, phones, and even the Xbox.
 
@@ -41,12 +48,12 @@ In short, .NET Platform is a collection of languages, libraries, and frameworks 
     - Optionally, development tools. Some are shared among multiple implementations.
 
 #### CLR? SDK?
-CLR Stands for Common Language Runtime, and it's runtime environment
-SDK stands for Software Development Kit.
-CLR comes included in SDK
+- CLR Stands for Common Language Runtime, and it's runtime environment. It is also know as main execution Engine and is used to run any .Net application.
+- SDK stands for Software Development Kit.
+- CLR comes included in SDK
 
 ## .NET Standard
-.NET Standard is a base set of API's that are common to all .NET implementation.
+- .NET Standard is a base set of API's that are common to all .NET implementation.
 
 ### Additional Frameworks
 These are frameworks that extend .NET platform to provide additional functionalities.
@@ -64,6 +71,10 @@ These are frameworks that extend .NET platform to provide additional functionali
 .NET 5
 ASP.NET: ASP.NET Core to match with .NET Core 
 
+
+## C# 
+### Anatomy of C# program
+    - namespace -> Types -> Type members
 ### Additional Resources
 - [.NET Documentation](https://docs.microsoft.com/en-us/dotnet/core/introduction)
 - [.NET Glossary](https://docs.microsoft.com/en-us/dotnet/standard/glossary)

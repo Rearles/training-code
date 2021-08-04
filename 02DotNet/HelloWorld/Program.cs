@@ -1,9 +1,14 @@
-﻿using System;
+﻿// namespace: Logical separation of Types
+//predefined namespace
+using System;
 
+// user defined namespace
 namespace HelloWorld
 {
+    // types - class, interface, structs, enums, delegates
     class Program
     {
+        //Type members - variables, methods, properties, events, indexers etc...
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
