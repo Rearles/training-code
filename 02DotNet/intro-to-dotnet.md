@@ -8,9 +8,12 @@
 ## Supported Programming Languages
 - Dozens of programming languages are supported by .Net provided they are compatible with the platform, [listed.](https://en.wikipedia.org/wiki/List_of_CLI_languages)
 - 3 different languages which are by default supported by .Net are
-- C#: Object oriented, type safe language and is case sensitive
-    - object oriented means, that everything is an object. These objects are further organized with classes
-    - Type-safe means that once you declare a type of a variable, you can't really change it. 
+- [C#](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/): Features are: 
+    - Object oriented, type safe language and is case sensitive
+        - object oriented means, that everything is an object. These objects are further organized with classes
+        - Type-safe means that once you declare a type of a variable, you can't really change it. 
+    - Component-oriented 
+    - Lambda Expression, LINQ (Language Integrated Query), asynchronous operations ...
 - Visual Basic : Supports UI and component oriented language.
 - F#: F# is a functional programming language supported by .NET
 - All .Net compliant languages ahve to follow a Standard. These standard are defined by CLS (Common Language Specification).
@@ -74,7 +77,21 @@ ASP.NET: ASP.NET Core to match with .NET Core
 
 ## C# 
 ### Anatomy of C# program
-    - namespace -> Types -> Type members
+- namespace -> Types -> Type members
+    - Namespace
+        - Types
+                - Members (Methods, variables, properties)
+- Types (Classes, Enums, Structs, Interface, Delegates)
+    -   All types in  C# are inherited directly or indirectly Sytem.Object
+        - Value Types - which has the direct value, stored in memory Stack, fast to access.
+            Structs, Enums. Predefined (int, long, short, byte, DateTime, char)
+        - Reference Types - it stores the reference to that value, value is stored in heap, expensive retrieval process.
+            Classes, interface, Delegates. Predefined -> string, arrays, collections etc
+- **Boxing**- refers to conversion Value type to reference types.
+- **Unboxing**- refers to conversion of reference types to value types.
+
+
+
 ### Additional Resources
 - [.NET Documentation](https://docs.microsoft.com/en-us/dotnet/core/introduction)
 - [.NET Glossary](https://docs.microsoft.com/en-us/dotnet/standard/glossary)
