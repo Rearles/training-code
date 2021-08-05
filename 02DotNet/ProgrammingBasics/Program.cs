@@ -18,17 +18,33 @@ namespace ProgrammingBasics
             Console.WriteLine(y);*/
             #endregion
             
-            Input();
+            //Input();
+            Console.WriteLine("Coffee sizes Press <1> for small, Press <2> for medium, Press <3> for large. \nPlease enter your selection: ");
+            string size = Console.ReadLine();
+            CSharpBasics.GetCoffee(size);
 
         }
         static void Input(){
-            CSharpBasics obj = new CSharpBasics();
             Console.WriteLine("-------Addition Program------------");
-            Console.Write(" Please enter a number : ");
-            float a = float.Parse(Console.ReadLine());
+            InputA: // code marker for goto statements
+            Console.Write(" Please enter a number : ");          
+            string _a = Console.ReadLine(); // operand 1
+            float a; //converted operand 1 to float
+            bool isValid_a= float.TryParse(_a, out a); //Try parse will return true if conversion of string to float is successful
+            if(!isValid_a){ // condition check if string to float conversion succeeded
+                Console.WriteLine("This is not a valid number, please try again");
+                goto InputA; //Jump statements (goto, return, continue, break)
+            }
+            InputB:
             Console.Write(" Please enter another number for addition : ");
-            float b = float.Parse(Console.ReadLine());
-            Console.Write($"The addition of {a} and {b} is {obj.Add(a,b)}");
+            float b;
+            string _b = Console.ReadLine();
+            bool isValid_b = float.TryParse(_b, out b);
+            if(!isValid_b){
+                Console.WriteLine("This is not a valid number, please try again");
+                goto InputB;
+            }
+            Console.Write($"The addition of {a} and {b} is {CSharpBasics.Add(a,b)}");
         }
     }
 }

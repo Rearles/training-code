@@ -90,6 +90,7 @@ ASP.NET: ASP.NET Core to match with .NET Core
 - **[Type Conversion](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/conversions)** : conversion of 1 type into another 
     - Implicit type conversion : no need to type cast. Ex byte value can be placed in int. No data loss.
     - Explicit type conversion : type cast it using `<datatype>.Parse(value)`, `Convert.<datatype>(value)`. You can have a data loss if its not fitting in the type.
+        - The `Parse` method returns the converted number; the `TryParse` method returns a boolean value that indicates whether the conversion succeeded, and returns the converted number in an `out` parameter.
 - **Boxing**- refers to conversion Value type to reference types.
 - **Unboxing**- refers to conversion of reference types to value types.
 
