@@ -8,9 +8,12 @@
 ## Supported Programming Languages
 - Dozens of programming languages are supported by .Net provided they are compatible with the platform, [listed.](https://en.wikipedia.org/wiki/List_of_CLI_languages)
 - 3 different languages which are by default supported by .Net are
-- C#: Object oriented, type safe language and is case sensitive
-    - object oriented means, that everything is an object. These objects are further organized with classes
-    - Type-safe means that once you declare a type of a variable, you can't really change it. 
+- [C#](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/): Features are: 
+    - Object oriented, type safe language and is case sensitive
+        - object oriented means, that everything is an object. These objects are further organized with classes
+        - Type-safe means that once you declare a type of a variable, you can't really change it. 
+    - Component-oriented 
+    - Lambda Expression, LINQ (Language Integrated Query), asynchronous operations ...
 - Visual Basic : Supports UI and component oriented language.
 - F#: F# is a functional programming language supported by .NET
 - All .Net compliant languages ahve to follow a Standard. These standard are defined by CLS (Common Language Specification).
@@ -74,9 +77,40 @@ ASP.NET: ASP.NET Core to match with .NET Core
 
 ## C# 
 ### Anatomy of C# program
-    - namespace -> Types -> Type members
+- namespace -> Types -> Type members
+    - Namespace
+        - Types
+                - Members (Methods, variables, properties)
+- Types (Classes, Enums, Structs, Interface, Delegates)
+    -   All types in  C# are inherited directly or indirectly Sytem.Object
+        - **[Value Types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types)** - which has the direct value, stored in memory Stack, fast to access.
+            Structs, Enums. Predefined (int, long, short, byte, DateTime, char)
+        - **[Reference Types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/reference-types)** - it stores the reference to that value, value is stored in heap, expensive retrieval process.
+            Classes, interface, Delegates. Predefined -> string, arrays, collections etc.
+- **[Type Conversion](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/conversions)** : conversion of 1 type into another 
+    - Implicit type conversion : no need to type cast. Ex byte value can be placed in int. No data loss.
+    - Explicit type conversion : type cast it using `<datatype>.Parse(value)`, `Convert.<datatype>(value)`. You can have a data loss if its not fitting in the type.
+        - The `Parse` method returns the converted number; the `TryParse` method returns a boolean value that indicates whether the conversion succeeded, and returns the converted number in an `out` parameter.
+- **Boxing**- refers to conversion Value type to reference types.
+- **Unboxing**- refers to conversion of reference types to value types.
+
+- **[Expressions](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/)
+** - An expression is a sequence of operators and operands.
+    - Ex int c = a + b;
+    ```
+    [(6/2)+2*3-1]
+    - 3 + 2 * 3 - 1
+    - 3 + 6 - 1
+    - 9 - 1
+    - 8
+    ```
+ 
+- **[Recursion](https://www.codeproject.com/Articles/142292/Recursive-methods-in-Csharp)** - It is a process of repetitiion own its own. A recursive function is a function that calls itself.
+    - A function that calls another function is normal but when a function calls itself then that is a recursive function.
+
 ### Additional Resources
 - [.NET Documentation](https://docs.microsoft.com/en-us/dotnet/core/introduction)
 - [.NET Glossary](https://docs.microsoft.com/en-us/dotnet/standard/glossary)
 - [Introducing .NET 5](https://devblogs.microsoft.com/dotnet/introducing-net-5/)
 - [What is .NET?](https://www.codecademy.com/articles/what-is-net)
+- [.Net CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/)
