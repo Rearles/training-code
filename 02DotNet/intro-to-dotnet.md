@@ -105,7 +105,7 @@ ASP.NET: ASP.NET Core to match with .NET Core
     - 8
     ```
  
-- **Recursion** - It is a process of repetitiion own its own. A recursive function is a function that calls itself.
+- **[Recursion](https://www.codeproject.com/Articles/142292/Recursive-methods-in-Csharp)** - It is a process of repetitiion own its own. A recursive function is a function that calls itself.
     - A function that calls another function is normal but when a function calls itself then that is a recursive function.
 
 ### Additional Resources
@@ -113,3 +113,4 @@ ASP.NET: ASP.NET Core to match with .NET Core
 - [.NET Glossary](https://docs.microsoft.com/en-us/dotnet/standard/glossary)
 - [Introducing .NET 5](https://devblogs.microsoft.com/dotnet/introducing-net-5/)
 - [What is .NET?](https://www.codecademy.com/articles/what-is-net)
+- [.Net CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/)

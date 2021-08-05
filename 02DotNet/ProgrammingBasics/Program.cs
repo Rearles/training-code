@@ -19,10 +19,15 @@ namespace ProgrammingBasics
             #endregion
             
             //Input();
-            Console.WriteLine("Coffee sizes Press <1> for small, Press <2> for medium, Press <3> for large. \nPlease enter your selection: ");
-            string size = Console.ReadLine();
-            CSharpBasics.GetCoffee(size);
+            // Console.WriteLine("Coffee sizes Press <1> for small, Press <2> for medium, Press <3> for large. \nPlease enter your selection: ");
+            // string size = Console.ReadLine();
+            // CSharpBasics.GetCoffee(size);
+            // Console.WriteLine("---------Factorial problem-------------");
+            // Console.Write("Please enter a number" );
+            // int num=int.Parse(Console.ReadLine());
+            // Console.WriteLine($"The factorial of {num} is {Factorial.CalculateFactorial_Recursive(num)}");
 
+            Console.WriteLine(args[0]);
         }
         static void Input(){
             Console.WriteLine("-------Addition Program------------");

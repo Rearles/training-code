@@ -6,7 +6,6 @@ namespace ProgrammingBasics
         internal static float Add(float a, float b){
             return a+b;
         }
-
         internal static void GetCoffee(string selection){
             int cost = 0;
             switch (selection)
