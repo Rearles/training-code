@@ -6,7 +6,10 @@ namespace PetManagement
     {
         static void Main(string[] args)
         {
-           Pet pet1 =new Pet();
+           CreatePet();
+        }
+        static void CreatePet(){
+            Pet pet1 =new Pet();
            // assign values to the variables
             Console.Write("Please enter your Pet id: ");
             pet1.id = Convert.ToInt32(Console.ReadLine());

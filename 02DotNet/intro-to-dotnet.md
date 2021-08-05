@@ -83,14 +83,29 @@ ASP.NET: ASP.NET Core to match with .NET Core
                 - Members (Methods, variables, properties)
 - Types (Classes, Enums, Structs, Interface, Delegates)
     -   All types in  C# are inherited directly or indirectly Sytem.Object
-        - Value Types - which has the direct value, stored in memory Stack, fast to access.
+        - **[Value Types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types)** - which has the direct value, stored in memory Stack, fast to access.
             Structs, Enums. Predefined (int, long, short, byte, DateTime, char)
-        - Reference Types - it stores the reference to that value, value is stored in heap, expensive retrieval process.
-            Classes, interface, Delegates. Predefined -> string, arrays, collections etc
+        - **[Reference Types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/reference-types)** - it stores the reference to that value, value is stored in heap, expensive retrieval process.
+            Classes, interface, Delegates. Predefined -> string, arrays, collections etc.
+- **[Type Conversion](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/conversions)** : conversion of 1 type into another 
+    - Implicit type conversion : no need to type cast. Ex byte value can be placed in int. No data loss.
+    - Explicit type conversion : type cast it using `<datatype>.Parse(value)`, `Convert.<datatype>(value)`. You can have a data loss if its not fitting in the type.
 - **Boxing**- refers to conversion Value type to reference types.
 - **Unboxing**- refers to conversion of reference types to value types.
 
-
+- **[Expressions](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/)
+** - An expression is a sequence of operators and operands.
+    - Ex int c = a + b;
+    ```
+    [(6/2)+2*3-1]
+    - 3 + 2 * 3 - 1
+    - 3 + 6 - 1
+    - 9 - 1
+    - 8
+    ```
+ 
+- **Recursion** - It is a process of repetitiion own its own. A recursive function is a function that calls itself.
+    - A function that calls another function is normal but when a function calls itself then that is a recursive function.
 
 ### Additional Resources
 - [.NET Documentation](https://docs.microsoft.com/en-us/dotnet/core/introduction)
