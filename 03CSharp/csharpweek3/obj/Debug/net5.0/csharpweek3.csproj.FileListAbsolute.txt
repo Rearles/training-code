@@ -1,0 +1,17 @@
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\bin\Debug\net5.0\csharpweek3.exe
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\bin\Debug\net5.0\csharpweek3.deps.json
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\bin\Debug\net5.0\csharpweek3.runtimeconfig.json
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\bin\Debug\net5.0\csharpweek3.runtimeconfig.dev.json
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\bin\Debug\net5.0\csharpweek3.dll
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\bin\Debug\net5.0\ref\csharpweek3.dll
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\bin\Debug\net5.0\csharpweek3.pdb
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\bin\Debug\net5.0\csharpweek3-doc.xml
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\obj\Debug\net5.0\csharpweek3.csproj.AssemblyReference.cache
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\obj\Debug\net5.0\csharpweek3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\obj\Debug\net5.0\csharpweek3.AssemblyInfoInputs.cache
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\obj\Debug\net5.0\csharpweek3.AssemblyInfo.cs
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\obj\Debug\net5.0\csharpweek3.csproj.CoreCompileInputs.cache
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\obj\Debug\net5.0\csharpweek3.dll
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\obj\Debug\net5.0\ref\csharpweek3.dll
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\obj\Debug\net5.0\csharpweek3.pdb
+C:\Users\MinseonSong\Revature\210726-wvu-net-ext\training-code\03CSharp\csharpweek3\obj\Debug\net5.0\csharpweek3.genruntimeconfig.cache
