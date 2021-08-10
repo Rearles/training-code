@@ -16,14 +16,16 @@ namespace csharpweek3
             //     Console.WriteLine(n);
             // }
             // Console.WriteLine(list.Count);
-            // //Covariant: child in place of parent
-            // List<int> intList = new List<int>();
-            // List<object> objectList = intList; //List<int>
+            //Covariant: child in place of parent
+            IEnumerable<int> intList = new IList<int>();
+            IEnumerable<object> objectList = intList; //List<int>
 
-            // //Contravariant: Parent in place of child
-            // Action<FirstGen> FirstGenAction = (target) => { Console.WriteLine(target.GetType().Name); };
-            // Action<SecondGen> SecondGenAction = FirstGenAction; //Action<FirstGen>
-            // SecondGenAction(new SecondGen());
+            Iinterface foo = new InterfaceImpl();
+
+            //Contravariant: Parent in place of child
+            Action<FirstGen> FirstGenAction = (target) => { Console.WriteLine(target.GetType().Name); };
+            Action<SecondGen> SecondGenAction = FirstGenAction; //Action<FirstGen>
+            SecondGenAction(new SecondGen());
 
             try
             {
@@ -41,6 +43,16 @@ namespace csharpweek3
             {
                 Console.WriteLine("This block is executed regardless of exception");
             }
+        }
+    }
+    interface Iinterface {
+        public methodOne() {}
+    }
+
+    class InterfaceImpl : Iinterface {
+        public methodOne()
+        {
+            Console.WriteLine("hello");
         }
     }
     /// <summary>

@@ -1,10 +1,13 @@
 # Week 3: Even More CSharp
-Comment/XML Doc, Variance/Type Checking, Exception Handling, Non-access modifiers,
+Comment/XML Doc, Variance/Type Checking, Exception Handling, Non-access modifiers
 
 ## Semantic Code with Comments (inline, XML)
 * inline comment //
 * block comment /* */
 * XML Documentation ///
+///<summary></summary>
+///<remarks></remarks>
+///<params></params>
 
 ## Deeper dive into C#'s types
 ### Type Casting Review:
@@ -43,6 +46,7 @@ Three types of variance:
 * GetType: Gets type during run time
 * Is
 * As
+[MSDoc](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast)
 
 ## Exception Handling
 * Try
