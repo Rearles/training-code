@@ -27,7 +27,12 @@ namespace ProgrammingBasics
             // int num=int.Parse(Console.ReadLine());
             // Console.WriteLine($"The factorial of {num} is {Factorial.CalculateFactorial_Recursive(num)}");
 
-            Console.WriteLine(args[0]);
+            //Console.WriteLine(args[0]); // reading commandline arguements
+
+            #region Arrays
+            //Arrays.SingleDimensional();
+            Arrays.ReverseString("Hello");
+            #endregion
         }
         static void Input(){
             Console.WriteLine("-------Addition Program------------");
