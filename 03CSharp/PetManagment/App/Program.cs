@@ -8,6 +8,7 @@ namespace App
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("time of the day "+ DateTime.Now.TimeOfDay);
             CreateCat();
         }
         static Pet CreatePet(){

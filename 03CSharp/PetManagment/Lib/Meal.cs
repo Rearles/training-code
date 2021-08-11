@@ -4,7 +4,8 @@ namespace Lib
     public enum FoodType{
         WetFood,
         DryFood,
-        RawFood
+        RawFood,
+        Treat
     }
     public class Meal
     {

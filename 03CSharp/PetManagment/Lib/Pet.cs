@@ -70,8 +70,15 @@ namespace Lib
         public string GetDetails(int id, string name, Gender gender){
            return $"Pet ID:{this.id=id}\n Pet name: {this.name=name}\n Birthday:{dob.ToShortDateString()}\n Gender: {this.gender=gender}";
         }
-
-        public abstract string GetMeal(Gender Gender);
+        
+        //public abstract string GetMeal(Gender Gender);
+        public virtual string GetMeal(Gender Gender){
+            Meal meal=new Meal(DateTime.Now);
+            if(Gender == Gender.Male)
+                return $"125 gms of {FoodType.DryFood}";    
+            else
+                return $"100 gms of {FoodType.DryFood}";               
+        }
         
     }
 }
