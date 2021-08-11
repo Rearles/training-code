@@ -1,11 +1,17 @@
 ﻿using System;
+using Lib;
 using System.Collections.Generic;
 
-namespace PetManagement
+namespace App
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            AllMeals();
+        }
+
+        private static void AllMeals()
         {
             Pet pet = CreatePet();
             Meal meal1 = CreateMeal("Dry Food");
@@ -13,15 +19,15 @@ namespace PetManagement
             Meal meal3 = CreateMeal("Raw Food");
             Meal meal4 = CreateMeal("Human Food :(");
 
-            List<Meal> meals = new List<Meal>(){meal1, meal2, meal3, meal4};
+            List<Meal> meals = new List<Meal>() { meal1, meal2, meal3, meal4 };
             pet.Meals.AddRange(meals);
 
-            foreach(Meal nom in pet.Meals)
+            foreach (Meal nom in pet.Meals)
             {
                 Console.WriteLine(nom.ToString());
             }
-
         }
+
         static Meal CreateMeal(string name) {
             return new Meal(name);
         }
@@ -49,9 +55,7 @@ namespace PetManagement
             // call the method
             string details=pet1.GetDetails();
             Console.WriteLine(pet1.GetDetails());
-
             return pet1;
-
         }
     }
 }

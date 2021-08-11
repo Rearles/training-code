@@ -1,8 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-
-namespace PetManagement
+namespace Lib
 {
+    public enum Gender{
+        Male = 0 ,
+        Female
+    }
     public class Pet
     {
         public Pet() {
@@ -28,28 +31,6 @@ namespace PetManagement
         // 2. Methods
         public string GetDetails(){
            return $"Pet ID:{id}\n Pet name: {name}\n Birthday:{dob.ToShortDateString()}\n Gender: {gender}";
-        }
-    }
-    public enum Gender{
-        Male = 0 ,
-        Female
-    }
-
-    public class Meal {
-        public Meal() {
-            this.timeFed = DateTime.Now;
-        }
-        public Meal(string foodName) : this()
-        {
-            this.foodName = foodName;
-        }
-
-        public string foodName {get; set;}
-        public DateTime timeFed {get; set;}
-
-        public override string ToString()
-        {
-            return $"Name: {this.foodName} \n Time: {this.timeFed}";
         }
     }
 }
