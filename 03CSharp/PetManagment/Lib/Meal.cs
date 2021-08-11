@@ -1,22 +1,25 @@
 using System;
 namespace Lib
 {
+    public enum FoodType{
+        WetFood,
+        DryFood,
+        RawFood
+    }
     public class Meal
     {
-        public Meal() {
-            this.timeFed = DateTime.Now;
-        }
-        public Meal(string foodName) : this()
+        public Meal(DateTime Time)
         {
-            this.foodName = foodName;
+            this.Time=Time;
         }
 
-        public string foodName {get; set;}
-        public DateTime timeFed {get; set;}
+        public FoodType FoodType {get; set;}
+        public DateTime Time {get; set;}
 
         public override string ToString()
         {
-            return $"Name: {this.foodName} \n Time: {this.timeFed}";
+            return $"Name: {this.FoodType} \nTime: {this.Time}";
         }
+
     }
 }

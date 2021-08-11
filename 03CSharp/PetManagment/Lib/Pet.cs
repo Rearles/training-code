@@ -39,8 +39,8 @@ namespace Lib
                 dob=value;
             } 
        }
-        Gender? gender;
-        public Gender? Gender { 
+        Gender gender;
+        public Gender Gender { 
             get{
                 return gender;
             } 
@@ -56,5 +56,22 @@ namespace Lib
         public string GetDetails(){
            return $"Pet ID:{id}\n Pet name: {name}\n Birthday:{dob.ToShortDateString()}\n Gender: {gender}";
         }
+        /// <summary>
+        /// This method takes string input and returns the output as formatted String
+        /// </summary>
+        /// <param name="name">String name</param>
+        /// <returns>String - formatted string</returns>
+        public string GetDetails(string name){
+           return $"Pet ID:{id}\n Pet name: {this.name=name}\n Birthday:{dob.ToShortDateString()}\n Gender: {gender}";
+        }
+        public string GetDetails(int id, string name){
+           return $"Pet ID:{this.id=id}\n Pet name: {this.name=name}\n Birthday:{dob.ToShortDateString()}\n Gender: {gender}";
+        }
+        public string GetDetails(int id, string name, Gender gender){
+           return $"Pet ID:{this.id=id}\n Pet name: {this.name=name}\n Birthday:{dob.ToShortDateString()}\n Gender: {this.gender=gender}";
+        }
+
+        public abstract string GetMeal(Gender Gender);
+        
     }
 }

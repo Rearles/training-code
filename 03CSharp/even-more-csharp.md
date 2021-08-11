@@ -113,3 +113,10 @@ dotnet sln PetManagment.sln add Lib/Lib.csproj
   - read-only - with only get block.
   - write-only - with only set block.
   - read-write property - with both get and set block.
+
+  ## Method Overloading 
+  - Methods with same name in the containing class but with different **Signature**.
+  - Signatures can be different in 3 ways:
+    - Number of parameters.
+    - Datatype of parameters.
+    - Sequence of parameters.
