@@ -96,7 +96,7 @@ Three types of variance:
 ## [Strings](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/)
 
 ## refactoring of the code demo
-- ```
+```
 mkdir PetManagment
 cd PetManagment/
 dotnet new sln
@@ -105,3 +105,11 @@ dotnet sln PetManagment.sln add App/App.csproj
 dotnet new classlib -o Lib
 dotnet sln PetManagment.sln add Lib/Lib.csproj
 ```
+
+## [Properties](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties)
+- Smart fields in C# which are used to expose a private variable outsid the class
+- You can use conditionals with your properties.
+- properties can be created in 3 ways:
+  - read-only - with only get block.
+  - write-only - with only set block.
+  - read-write property - with both get and set block.

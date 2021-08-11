@@ -8,7 +8,7 @@ namespace App
     {
         static void Main(string[] args)
         {
-            AllMeals();
+            CreateCat();
         }
 
         private static void AllMeals()
@@ -27,35 +27,51 @@ namespace App
                 Console.WriteLine(nom.ToString());
             }
         }
-
         static Meal CreateMeal(string name) {
             return new Meal(name);
         }
         static Pet CreatePet(){
-            Pet pet1 = new Pet();
-
+            Pet pet1 = new Cat();
            // assign values to the variables
             Console.Write("\nPlease enter your Pet name: ");
-            pet1.name = Console.ReadLine();
+            pet1.Name = Console.ReadLine();
             Console.Write("\nPlease enter your Pet date of birth (yyyy/mm/dd): ");
-            pet1.dob = Convert.ToDateTime(Console.ReadLine());
+            pet1.Dob = Convert.ToDateTime(Console.ReadLine());
 
             do {
                 Console.Write("\nPlease enter your Pet's Gender (press <1> for Female and press <0> for male): ");
                 string gender = Console.ReadLine();
                 if(gender == "0")
-                    pet1.gender = Gender.Male;
+                    pet1.Gender = Gender.Male;
                 else if(gender == "1") 
-                    pet1.gender = Gender.Female;
+                    pet1.Gender = Gender.Female;
                 else 
                     Console.Write("incorrect Gender (press <1> for Female and press <0> for male)");
-            } while(pet1.gender is null);
-
+            } while(pet1.Gender is null);
 
             // call the method
             string details=pet1.GetDetails();
             Console.WriteLine(pet1.GetDetails());
             return pet1;
+        }
+        static void CreateCat(){
+            Cat pet1 = new Cat();
+            Console.Write("\nPlease enter your Pet name: ");
+            pet1.Name = Console.ReadLine();
+            Console.Write("\nPlease enter your Pet date of birth (yyyy/mm/dd): ");
+            pet1.Dob = Convert.ToDateTime(Console.ReadLine());
+
+            do {
+                Console.Write("\nPlease enter your Pet's Gender (press <1> for Female and press <0> for male): ");
+                string gender = Console.ReadLine();
+                if(gender == "0")
+                    pet1.Gender = Gender.Male;
+                else if(gender == "1") 
+                    pet1.Gender = Gender.Female;
+                else 
+                    Console.Write("incorrect Gender (press <1> for Female and press <0> for male)");
+            } while(pet1.Gender is null);
+            Console.WriteLine(pet1.GetDetails());
         }
     }
 }

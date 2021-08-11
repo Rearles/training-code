@@ -8,27 +8,51 @@ namespace Lib
     }
     public class Pet
     {
-        public Pet() {
-            Console.WriteLine("Empty Constuctor has been called");
-            Random rand = new Random();
-            this.id = rand.Next();
-            this.gender = null;
-            this.Meals = new List<Meal>();
+        int id;
+        public int Id{
+            get{
+                return id;
+            }
+            set{
+                id=value;
+            }
         }
-        public Pet(string name) : this()
-        {
-            Console.WriteLine("Constuctor with name has been called");
-            this.name = name;
+        string name;
+        public string Name { 
+            get{
+                if(!String.IsNullOrEmpty(name))
+                    return name;
+                else
+                    throw new NullReferenceException();
+            }
+            set{
+                name=value;
+            } 
+         }
+       
+        DateTime dob;
+        public DateTime Dob { 
+            get{
+                return dob;
         }
-
-        // 1. variables 
-        public int id;
-        public string name;
-        public System.DateTime dob;
-        public Gender? gender;
-
-        public List<Meal> Meals;
-        // 2. Methods
+            set{
+                dob=value;
+            } 
+       }
+        Gender? gender;
+        public Gender? Gender { 
+            get{
+                return gender;
+            } 
+            set{
+                gender=value;
+            }
+        }
+        List<Meal> meals;
+        public List<Meal> Meals { 
+            get{return meals;}
+            set{meals=value;}
+        }
         public string GetDetails(){
            return $"Pet ID:{id}\n Pet name: {name}\n Birthday:{dob.ToShortDateString()}\n Gender: {gender}";
         }
