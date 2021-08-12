@@ -121,6 +121,24 @@ dotnet sln PetManagment.sln add Lib/Lib.csproj
     - Datatype of parameters.
     - Sequence of parameters.
 
+## [Abstract class](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members) vs [Interface](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface)
+- An interface defines a contract. Any class or struct that implements that contract must provide an implementation of the members defined in the interface. 
+- Abstract class allows you to implement a spectrum of abstraction like full abstraction, partial abstraction etc....
+- Abstract class allows you to have all types of members. Like you can have data variables and assign values to it and can create methods with definition.
+- Abstract class and interface cannot be instantiated but meant to be implemented/inherited.
+- Abstract/Concrete class can implement one or more interfaces by which multiple inheritance is achieved. But class can only inherit from 1 class.
+- A class can inherit 1 class and one or more interfaces.
+```
+class A{ }
+
+Class B : A,IA,IB
+{ }
+
+interface IA{}
+
+interface IB
+```
+
 ## [Memory Management in .Net](https://medium.com/c-programming/c-memory-management-part-1-c03741c24e4b)
 - The GC allocates heap segments where each segment is a contiguous range of memory.
 - Objects are allocated in contiguous blocks of memory.

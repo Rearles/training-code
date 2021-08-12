@@ -29,7 +29,7 @@ namespace Lib
         public FurType FurType { get; set; }
 
         public new string GetDetails(){
-            var result=base.GetDetails();// calling parent class Getdetails method
+            var result=base.GetDetails("Tolly");// calling parent class Getdetails method
             return result +" " + $"\nCat type: {CatType}\nWeight: {Weight} pounds\nFur type: {FurType}";
         }
        public override string GetMeal(Gender Gender)

@@ -11,8 +11,8 @@ namespace App
             Console.WriteLine("time of the day "+ DateTime.Now.TimeOfDay);
             CreateCat();
         }
-        static Pet CreatePet(){
-            Pet pet1 = new Cat();
+        static IPet CreatePet(){
+            IPet pet1 = new Cat();//Upcasting
            // assign values to the variables
             Console.Write("\nPlease enter your Pet name: ");
             pet1.Name = Console.ReadLine();
@@ -48,7 +48,7 @@ namespace App
                 else 
                     Console.Write("incorrect Gender (press <1> for Female and press <0> for male)");
             Console.WriteLine(pet1.GetDetails(101,pet1.Name));// calling the overload in Pet class
-            Console.WriteLine(pet1.GetMeal(pet1.Gender));
+            Console.WriteLine("Please feed your pet with "+ pet1.GetMeal(pet1.Gender));
         }
     }
 }

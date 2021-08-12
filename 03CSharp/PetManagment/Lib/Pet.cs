@@ -6,7 +6,7 @@ namespace Lib
         Male = 0 ,
         Female
     }
-    public class Pet
+    public partial class Pet:IPet, IOmnivorous// Implementing interface
     {
         int id;
         public int Id{
@@ -49,36 +49,20 @@ namespace Lib
             }
         }
         List<Meal> meals;
-        public List<Meal> Meals { 
+        List<Meal> IPet.Meals { 
             get{return meals;}
             set{meals=value;}
         }
-        public string GetDetails(){
-           return $"Pet ID:{id}\n Pet name: {name}\n Birthday:{dob.ToShortDateString()}\n Gender: {gender}";
-        }
-        /// <summary>
-        /// This method takes string input and returns the output as formatted String
-        /// </summary>
-        /// <param name="name">String name</param>
-        /// <returns>String - formatted string</returns>
-        public string GetDetails(string name){
-           return $"Pet ID:{id}\n Pet name: {this.name=name}\n Birthday:{dob.ToShortDateString()}\n Gender: {gender}";
-        }
-        public string GetDetails(int id, string name){
-           return $"Pet ID:{this.id=id}\n Pet name: {this.name=name}\n Birthday:{dob.ToShortDateString()}\n Gender: {gender}";
-        }
-        public string GetDetails(int id, string name, Gender gender){
-           return $"Pet ID:{this.id=id}\n Pet name: {this.name=name}\n Birthday:{dob.ToShortDateString()}\n Gender: {this.gender=gender}";
+        List<Meal> mealsOmnivorous;
+        List<Meal> IOmnivorous.Meals{
+            get{
+                return mealsOmnivorous;
+            }
+            set{
+                mealsOmnivorous=value;
+            }
         }
         
-        //public abstract string GetMeal(Gender Gender);
-        public virtual string GetMeal(Gender Gender){
-            Meal meal=new Meal(DateTime.Now);
-            if(Gender == Gender.Male)
-                return $"125 gms of {FoodType.DryFood}";    
-            else
-                return $"100 gms of {FoodType.DryFood}";               
-        }
         
     }
 }
