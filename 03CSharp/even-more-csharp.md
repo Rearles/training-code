@@ -138,7 +138,27 @@ interface IA{}
 
 interface IB
 ```
-
+## [Collections](https://docs.microsoft.com/en-us/dotnet/standard/collections/)
+- Similar data can often be handled more efficiently when stored and manipulated as a collection. 
+- You can use arrays, non-generic or generics.
+- Arrays have fixed size and every element must have a value if no value is provided it contains the default.
+- Arrays cannot be grown or shrinked. This where collection solves the problem.
+- C# offers 2 categories of Collections:
+    - non-generics
+    - generics
+- **Non-generic** collections store items as Object, require casting. Performance concerns were arised due to this casting and also Garbage Collection.
+- **Generic collections** are type-safe at compile time. Because of this, generic collections typically offer better performance. 
+- Generic collections accept a type parameter when they are constructed and do not require that you cast to and from.
+- All collections provide methods for adding, removing, or finding items in the collection.
+- All collections can be **enumerated** by virtue of **Enumerator**.
+- An enumerator can be thought of as a movable pointer to any element in the collection.
+- Types of Collections:
+    - Stack - LIFO (Push, Pop, Peek)
+    - Queue - FIFO (Enqueue, Dequeue, Peek)
+    - List - Like any array which can grow and shrink dynamically.
+    - Dictionary<Tkey,TValue> - Key Value Pair
+    - LinkedList - Each element points to next.
+- You can query your collections using [LINQ](https://www.tutorialsteacher.com/linq/linq-tutorials). You can query using query Syntax or Method Syntax.
 ## [Memory Management in .Net](https://medium.com/c-programming/c-memory-management-part-1-c03741c24e4b)
 - The GC allocates heap segments where each segment is a contiguous range of memory.
 - Objects are allocated in contiguous blocks of memory.
