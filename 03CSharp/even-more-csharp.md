@@ -114,9 +114,241 @@ dotnet sln PetManagment.sln add Lib/Lib.csproj
   - write-only - with only set block.
   - read-write property - with both get and set block.
 
-  ## Method Overloading 
+## Method Overloading 
   - Methods with same name in the containing class but with different **Signature**.
   - Signatures can be different in 3 ways:
     - Number of parameters.
     - Datatype of parameters.
     - Sequence of parameters.
+
+## [Memory Management in .Net](https://medium.com/c-programming/c-memory-management-part-1-c03741c24e4b)
+- The GC allocates heap segments where each segment is a contiguous range of memory.
+- Objects are allocated in contiguous blocks of memory.
+- To mitigate fragmentation, when the [Garbage COllector](https://medium.com/c-programming/c-memory-management-part-3-garbage-collection-18faf118cbf1) frees memory, it tries to defragment it. This process is called **compaction**.
+- Objects placed in the heap are categorized into one of 3 generations: 0, 1, or 2. 
+- The generation determines the frequency the GC attempts to release memory on managed objects that are no longer referenced by the app. 
+- Lower numbered generations are GC'd more frequently.
+- Objects are moved from one generation to another based on their lifetime. 
+- As objects live longer, they are moved into a higher generation. 
+- As mentioned previously, higher generations are GC'd less often. 
+- Short term lived objects always remain in generation 0. 
+- For example, objects that are referenced during the life of a web request are short lived. 
+- Application level singletons generally migrate to generation 2.
+
+- **What is a finalizer?**
+    - Finalizers (which are also called destructors) are used to perform any necessary final clean-up when a class instance is being collected by the garbage collector. Some important points about finalizers are:
+    - A class can have only one finalizer.
+    - A finalizer does not have modifiers or parameters.
+    - Finalizers cannot be called explicitly, they are called by the garbage collector (GC) when the GC considers the object eligible for finalization. 
+    - They are also called when the program finishes in .NET framework applications.
+```
+    class Person
+    {
+        //properties
+        public string Name { get; set; }
+        public int Age { get; set; }
+
+        public Person() //constructor
+        {
+            //initialization statements
+        }
+
+        ~Person() //finalizer (destructor)
+        {
+            //cleanup statements
+        }
+    }
+```
+- Finalizers called inhertiance chain: finalizers are called recursively for all instances in the inheritance chain, from the most-derived to the least-derived.
+
+```
+    class Person
+    {
+        ~Person() //finalizer (destructor)
+        {
+            //cleanup statements
+            Console.WriteLine("Person's finalizer is called.");
+        }
+    }
+
+    class Employee : Person
+    {
+        ~Employee()
+        {
+            //cleanup statements
+            Console.WriteLine("Employee's finalizer is called.");
+        }
+    }
+
+    class Manager : Employee
+    {
+        ~Manager()
+        {
+            //cleanup statements
+            Console.WriteLine("Manager's finalizer is called.");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var manager = new Manager();
+        }
+    }
+```
+
+- **Native memory**
+    - Some .NET Core objects rely on native memory. 
+    - Native memory can not be collected by the GC. 
+    - The .NET object using native memory must free it using native code.
+    - .NET provides the IDisposable interface to let developers release native memory. 
+    - Even if Dispose is not called, correctly implemented classes call Dispose when the finalizer runs.
+
+- **What is Dispose Method?**
+    - We mentioned above that finalizers are called by the garbage collector or when the program finishes (in .NET framework applications). 
+    - This means we cannot call them. 
+    - If our application uses an expensive external resource, we should then release the resource explicitly. 
+    - We can do this by implementing Dispose method from IDisposable interface. 
+    - By this way, we can improve the performance of our application as well. Now, let’s see this in practice.
+
+- **How to Implement Dispose Method?**
+    - First, we create a class that implements IDisposable interface and then choose Implement interface with Dispose pattern.
+```
+   class DatabaseConnection : IDisposable
+    {
+
+        #region IDisposable Support
+        private bool disposedValue = false; // To detect redundant calls
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    // TODO: dispose managed state (managed objects).
+                }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
+                // TODO: set large fields to null.
+
+                disposedValue = true;
+            }
+        }
+
+        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
+        // ~DatabaseConnection() {
+        //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+        //   Dispose(false);
+        // }
+
+        // This code added to correctly implement the disposable pattern.
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+            Dispose(true);
+            // TODO: uncomment the following line if the finalizer is overridden above.
+            // GC.SuppressFinalize(this);
+        }
+        #endregion
+
+    }
+```
+- Ex:
+```
+    class DatabaseConnection : IDisposable
+    {
+
+        #region IDisposable Support
+        private bool disposedValue = false; // To detect redundant calls
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                Console.WriteLine("This is the first call to Dispose. Necessary clean-up will be done!");
+
+                if (disposing)
+                {
+                    // TODO: dispose managed state (managed objects).
+                    Console.WriteLine("Explicit call: Dispose is called by the user.");
+                }
+                else
+                {
+                    Console.WriteLine("Implicit call: Dispose is called through finalization.");
+                }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
+                Console.WriteLine("Unmanaged resources are cleaned up here.");
+
+                // TODO: set large fields to null.
+
+                disposedValue = true;
+            }
+            else
+            {
+                Console.WriteLine("Dispose is called more than one time. No need to clean up!");
+            }
+        }
+
+        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
+        ~DatabaseConnection()
+        {
+            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+            Dispose(false);
+        }
+
+        // This code added to correctly implement the disposable pattern.
+        public void Dispose()
+        {
+           // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+            Dispose(true);
+            // TODO: uncomment the following line if the finalizer is overridden above.
+            GC.SuppressFinalize(this);
+        } 
+        #endregion
+
+    }
+```
+
+- Now, we can use DatabaseConnection class in order to see how Dispose pattern acts in different scenarios.
+```
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var connection = new DatabaseConnection();
+            try
+            {
+                //Write your operational code here
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+        }
+    }
+```
+
+- Another and commonly used method to call Dispose is using using statement:
+
+```
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            using (var connection = new DatabaseConnection())
+            {
+                //Write your operational code here
+            }
+        }
+    }
+```
+- As you see there is no call to Dispose method because the using statement handles that automatically.
+- Both codes above generate the same output.
+
+## References
+- [Memory Management](https://medium.com/c-programming/c-memory-management-part-1-c03741c24e4b)
+- [Finalize and Dispose](https://medium.com/c-programming/c-memory-management-part-2-finalizer-dispose-d3b3e43c08d1)
+
