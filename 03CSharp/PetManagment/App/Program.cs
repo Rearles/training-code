@@ -2,6 +2,7 @@
 using Lib;
 using System.Collections.Generic;
 using System.Linq;
+using Data;
 
 namespace App
 {
@@ -9,13 +10,20 @@ namespace App
     {
         static void Main(string[] args)
         {
+
             Console.WriteLine("time of the day "+ DateTime.Now.TimeOfDay);
             //CreateCat();
             //GetPets();
-           // GetPetsFromDictionary();
-            var pet=GetPetById(100);
-            Console.WriteLine($"{pet.Id} {pet.Name}");
-
+            // GetPetsFromDictionary();
+            //var pet=GetPetById(100);
+            //Console.WriteLine($"{pet.Id} {pet.Name}");
+            CallDatabaseCon();
+            Console.ReadKey();
+        }
+        static void CallDatabaseCon(){
+            using(DatabaseConnection connection=new DatabaseConnection()){
+                Console.WriteLine("Using connection");
+            }           
         }
         static Pet GetPetById(int id){
             var pets=Pet.InitializePet();
