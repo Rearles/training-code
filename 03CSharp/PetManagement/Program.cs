@@ -7,19 +7,21 @@ namespace PetManagement
     {
         static void Main(string[] args)
         {
-            Pet pet = CreatePet();
-            Meal meal1 = CreateMeal("Dry Food");
-            Meal meal2 = CreateMeal("Wet Food");
-            Meal meal3 = CreateMeal("Raw Food");
-            Meal meal4 = CreateMeal("Human Food :(");
+            // Pet pet = CreatePet();
+            // Meal meal1 = CreateMeal("Dry Food");
+            // Meal meal2 = CreateMeal("Wet Food");
+            // Meal meal3 = CreateMeal("Raw Food");
+            // Meal meal4 = CreateMeal("Human Food :(");
 
-            List<Meal> meals = new List<Meal>(){meal1, meal2, meal3, meal4};
-            pet.Meals.AddRange(meals);
+            // List<Meal> meals = new List<Meal>(){meal1, meal2, meal3, meal4};
+            // pet.Meals.AddRange(meals);
 
-            foreach(Meal nom in pet.Meals)
-            {
-                Console.WriteLine(nom.ToString());
-            }
+            // foreach(Meal nom in pet.Meals)
+            // {
+            //     Console.WriteLine(nom.ToString());
+            // }
+            Pet hoot = new Pet("Hoot", DateTime.Now);
+            Console.WriteLine(hoot.GetDetails());
 
         }
         static Meal CreateMeal(string name) {

@@ -22,6 +22,11 @@
             <param name="m">another integer to add</param>
             <returns>an integer of n + m</returns>
         </member>
+        <member name="T:csharpweek3.TypeConversion">
+            <summary>
+            Type Conversion Document
+            </summary>
+        </member>
         <member name="M:csharpweek3.TypeConversion.ParamMod(System.Int32@,System.Int32@,System.Int32@)">
             <summary>
             Pass by reference example
@@ -29,6 +34,11 @@
             <param name="outParam">out integer param, must have value before function exits</param>
             <param name="inParam">in integer param, cannot be changed inside the method</param>
             <param name="refParam">ref integer param, must be initialized before call time</param>
+        </member>
+        <member name="T:AnotherNamespace.anotherClass">
+            <summary>
+            another class
+            </summary>
         </member>
     </members>
 </doc>

@@ -18,6 +18,12 @@ namespace PetManagement
             this.name = name;
         }
 
+        public Pet(string name, DateTime dob) : this(name)
+        {   
+            Console.WriteLine("dob");
+            this.dob = dob;
+        }
+
         // 1. variables 
         public int id;
         public string name;

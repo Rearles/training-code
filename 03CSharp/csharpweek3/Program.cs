@@ -17,44 +17,33 @@ namespace csharpweek3
             // }
             // Console.WriteLine(list.Count);
             //Covariant: child in place of parent
-            IEnumerable<int> intList = new IList<int>();
-            IEnumerable<object> objectList = intList; //List<int>
+            // IEnumerable<int> intList = new IList<int>();
+            // IEnumerable<object> objectList = intList; //List<int>
 
-            Iinterface foo = new InterfaceImpl();
+            // //Contravariant: Parent in place of child
+            // Action<FirstGen> FirstGenAction = (target) => { Console.WriteLine(target.GetType().Name); };
+            // Action<SecondGen> SecondGenAction = FirstGenAction; //Action<FirstGen>
+            // SecondGenAction(new SecondGen());
 
-            //Contravariant: Parent in place of child
-            Action<FirstGen> FirstGenAction = (target) => { Console.WriteLine(target.GetType().Name); };
-            Action<SecondGen> SecondGenAction = FirstGenAction; //Action<FirstGen>
-            SecondGenAction(new SecondGen());
-
-            try
-            {
-                ExceptionHandling.ExceptionExample();
-            }
-            catch (IndexOutOfRangeException ex)
-            {
-                Console.WriteLine("we caught it here!! {0}", ex);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("This catches all other exception {0}", ex);
-            }
-            finally 
-            {
-                Console.WriteLine("This block is executed regardless of exception");
-            }
+            // try
+            // {
+            //     ExceptionHandling.ExceptionExample();
+            // }
+            // catch (IndexOutOfRangeException ex)
+            // {
+            //     Console.WriteLine("we caught it here!! {0}", ex);
+            // }
+            // catch (Exception ex)
+            // {
+            //     Console.WriteLine("This catches all other exception {0}", ex);
+            // }
+            // finally 
+            // {
+            //     Console.WriteLine("This block is executed regardless of exception");
+            // }
         }
     }
-    interface Iinterface {
-        public methodOne() {}
-    }
 
-    class InterfaceImpl : Iinterface {
-        public methodOne()
-        {
-            Console.WriteLine("hello");
-        }
-    }
     /// <summary>
     /// XML documentation demo class
     /// </summary>
@@ -65,13 +54,16 @@ namespace csharpweek3
         /// </summary>
         /// <param name="n">an integer to add</param>
         /// <param name="m">another integer to add</param>
-        /// <returns>an integer of n + m</returns>
+        /// <returns>a new integer of value n + m</returns>
         public static int Add(int n, int m)
         {
             return n + m;
         }
     }
 
+    /// <summary>
+    /// Type Conversion Document
+    /// </summary>
     class TypeConversion
     {
         public static void Boxing()
@@ -116,8 +108,8 @@ namespace csharpweek3
             // //typeof, GetType, Is, and As
             // Console.WriteLine(typeof(int));
             // int m = 100;
-            // typeof(m);
-            // m.GetType();at
+            // typeof(m); //doesn't work
+            // m.GetType();
 
             // int n = 10;
             // //program runs, stuff happens to n
@@ -176,7 +168,7 @@ namespace csharpweek3
             catch(IndexOutOfRangeException ex)
             {
                 // Console.WriteLine("handled exception {0}", ex);
-                throw new CustomException("we're throwing a custom exception");
+                throw new CustomException("we're throwing a custom exception instead");
             }
         }
     }
