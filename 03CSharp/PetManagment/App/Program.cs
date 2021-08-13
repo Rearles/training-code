@@ -17,8 +17,10 @@ namespace App
             //var pet=GetPetById(100);
             //Console.WriteLine($"{pet.Id} {pet.Name}");
             //UsingData.CallDatabaseCon();
-            //UsingData.Serialize();
-            UsingData.Deserialize();
+            //UsingData.Serialize_Xml();
+            //UsingData.Deserialize_Xml();
+            UsingData.Serialize_Json();
+            UsingData.Deserialize_Json();
         }
       
         static Lib.Pet GetPetById(int id){
