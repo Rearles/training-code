@@ -10,12 +10,8 @@ namespace Lib
     {
         int id;
         public int Id{
-            get{
-                return id;
-            }
-            set{
-                id=value;
-            }
+            get => id;
+            set => id=value;
         }
         string name;
         public string Name { 

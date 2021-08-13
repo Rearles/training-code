@@ -403,6 +403,17 @@ interface IB
             - Public read/write properties and fields of public classes.
             - Classes that implement ICollection or IEnumerable.
     - JSON
+
+- [Delegates](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/using-delegates): Type Safe function pointers. Delegates are tied to method of same type, which means delegate's declaration should match with function declration. There are 2 types of delegates:
+    1. Single cast delegate - which holds single method.
+    2. Multi cast delegate - which holds more than one method.
+- Delegates are the building blocks of event.
+- Delegates are used to create anonymous methods and lambda expresssions
+- There are a few predefined delegates in C#:
+    - Action<>() -> this is a delegate of type void
+    - Func<>(T, T) -> this delegate has a return type.
+    - Predicate() -> returns bool
+
 ## References
 - [Memory Management](https://medium.com/c-programming/c-memory-management-part-1-c03741c24e4b)
 - [Finalize and Dispose](https://medium.com/c-programming/c-memory-management-part-2-finalizer-dispose-d3b3e43c08d1)
