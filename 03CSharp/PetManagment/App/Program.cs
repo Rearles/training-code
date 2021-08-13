@@ -2,7 +2,6 @@
 using Lib;
 using System.Collections.Generic;
 using System.Linq;
-using Data;
 
 namespace App
 {
@@ -17,15 +16,12 @@ namespace App
             // GetPetsFromDictionary();
             //var pet=GetPetById(100);
             //Console.WriteLine($"{pet.Id} {pet.Name}");
-            CallDatabaseCon();
-            Console.ReadKey();
+            //UsingData.CallDatabaseCon();
+            //UsingData.Serialize();
+            UsingData.Deserialize();
         }
-        static void CallDatabaseCon(){
-            using(DatabaseConnection connection=new DatabaseConnection()){
-                Console.WriteLine("Using connection");
-            }           
-        }
-        static Pet GetPetById(int id){
+      
+        static Lib.Pet GetPetById(int id){
             var pets=Pet.InitializePet();
             
             var pet=pets.FirstOrDefault(x=>x.Id==id);
@@ -36,7 +32,7 @@ namespace App
                 return null;
         }
         static void GetPets(){
-            var pets = Pet.InitializePet();
+            var pets = Lib.Pet.InitializePet();
             Console.WriteLine("#  |Pet Name| DOB    |  Gender   " );
             foreach (var pet in pets)
             {
@@ -44,14 +40,14 @@ namespace App
             }
         }
         static void GetPetsFromDictionary(){
-            var pets=Pet.InitializePetDictionary();
+            var pets=Lib.Pet.InitializePetDictionary();
             foreach (var key in pets.Keys)
             {
                Console.WriteLine($"{key} {pets[key].Id} {pets[key].Name}");
             }
         }
         static IPet CreatePet(){
-            IPet pet1 = new Cat();//Upcasting
+            IPet pet1 = new Lib.Cat();//Upcasting
             // assign values to the variables
             Console.Write("\nPlease enter your Pet name: ");
             pet1.Name = Console.ReadLine();
@@ -72,7 +68,7 @@ namespace App
             return pet1;
         }
         static void CreateCat(){
-            Cat pet1 = new Cat();
+            Lib.Cat pet1 = new Lib.Cat();
             Console.Write("\nPlease enter your Pet name: ");
             pet1.Name = Console.ReadLine();
             Console.Write("\nPlease enter your Pet date of birth (yyyy/mm/dd): ");

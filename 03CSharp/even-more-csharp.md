@@ -386,13 +386,23 @@ interface IB
 - As you see there is no call to Dispose method because the using statement handles that automatically.
 - Both codes above generate the same output.
 
-## File Handling In C#
+## [File Handling In C#](https://www.tutorialspoint.com/csharp/csharp_file_io.htm)
 - **System.IO** namespace provides four classes that allow you to manipulate individual files, as well as interact with a machine directory structure.
 - The **Directory** and **File** directly extends System.Object and supports the creation, copying, moving and deletion of files using various static methods.
     -  They only contain static methods and are never instantiated.
 - The **FileInfo** and **DirectoryInfo** types are derived from the abstract class **FileSystemInfo** type and they are typically, employed for obtaining the full details of a file or directory because their members tend to return strongly typed objects.
     - They implement roughly the same public methods as a Directory and a File but they are stateful and the members of these classes are not static.
 
+## Serialization :
+- Serialization is the process of converting an object into a form that can be readily transported. For example, you can serialize an object and transport it over the Internet using HTTP between a client and a server. 
+- On the other end, deserialization reconstructs the object from the stream.
+- The most common formats of serializations are:
+    - [XML](https://docs.microsoft.com/en-us/dotnet/standard/serialization/introducing-xml-serialization): XML serialization serializes only the public fields and property values of an object into an XML stream. 
+        - You can use [XML Serializer]() class to serialize your objects.
+        - The following items can be serialized using the XmlSerializer class:
+            - Public read/write properties and fields of public classes.
+            - Classes that implement ICollection or IEnumerable.
+    - JSON
 ## References
 - [Memory Management](https://medium.com/c-programming/c-memory-management-part-1-c03741c24e4b)
 - [Finalize and Dispose](https://medium.com/c-programming/c-memory-management-part-2-finalizer-dispose-d3b3e43c08d1)
