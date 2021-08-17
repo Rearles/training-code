@@ -7,6 +7,7 @@ namespace Models
         public Meal() {}
         public Meal(int catId, string foodType)
         {
+            this.Time = DateTime.Now;
             this.CatId = catId;
             this.FoodType = foodType;
         }
