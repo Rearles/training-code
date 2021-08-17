@@ -1,9 +1,16 @@
 using Models;
+using BL;
 
 namespace UI
 {
     public class MainMenu : IMenu
     {
+        private IPetBL _petbl;
+        public MainMenu(IPetBL bl)
+        {
+            _petbl = bl;
+        }
+
         public void Start()
         {
             bool repeat = true;
@@ -51,7 +58,11 @@ namespace UI
         }
         private void ViewAllCats() 
         {
-            Console.WriteLine("You're viewing all cats");
+            List<Cat> cats = _petbl.ViewAllCats();
+            foreach(Cat cat in cats)
+            {
+                Console.WriteLine(cat.Name);
+            }
         }
     }
 }
