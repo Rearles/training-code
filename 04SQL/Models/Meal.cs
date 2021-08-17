@@ -1,3 +1,5 @@
+using System;
+
 namespace Models
 {
     public class Meal
@@ -8,7 +10,7 @@ namespace Models
             this.CatId = catId;
             this.FoodType = foodType;
         }
-        
+
         public DateTime Time {get;set;}
         public string FoodType {get;set;}
         public int CatId {get;set;}

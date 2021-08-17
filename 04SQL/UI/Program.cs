@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using DL.Entities;
 using BL;
 using DL;
+using System.IO;
 
 var configuration = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
