@@ -414,7 +414,107 @@ interface IB
     - Func<>(T, T) -> this delegate has a return type.
     - Predicate() -> returns bool
 
+## SDLC
+- Phases of SDLC -> Requirement Analysis, Design, Development, Testing, Deployment, Maintainence 
+- Waterfall, Bing Bang Model, RAD, Spiral Model, Iterative, Agile (Scrum), TDD
+## Testing 
+- Black-box, white-box testing
+- Performance Testing, Load Testing, Smoke testing, Integration Testing, Penetration Testing, Unit Testing.
+- **Unit Testing** is important component of developer testing which is heavily used in TDD.
+  - In.Net/.Net Core supports multiple frameworks for testing 
+  - MSTest, NUnit, xUnit.
+## [SOLID Principles](https://medium.com/backticks-tildes/the-s-o-l-i-d-principles-in-pictures-b34ce2f1e898)
+- SOLID is an acronym for the first five object-oriented design (OOD) principles by Robert C. Martin
+- These principles establish practices that lend to developing software with considerations for maintaining and extending as the project grows.
+- Adopting these practices can also contribute to avoiding code smells, refactoring code, and Agile or Adaptive software development.
+- Projects that adhere to SOLID principles can be shared with collaborators, extended, modified, tested, and refactored with fewer complications.
+- SOLID stands for:
+  - S - Single-responsiblity Principle
+  - O - Open-closed Principle
+  - L - Liskov Substitution Principle
+  - I - Interface Segregation Principle
+  - D - Dependency Inversion Principle
+- Single-responsibility Principle (SRP) states:
+    - A class should have one and only one reason to change, meaning that a class should have only one job.
+    - If a Class has many responsibilities, it increases the possibility of bugs because making changes to one of its responsibilities, could affect the other ones without you knowing.
+    - This principle aims to separate behaviours so that if bugs arise as a result of your change, it won’t affect other unrelated behaviours.
+- Open-closed Principle (OCP) states:
+  - Objects or entities should be open for extension but closed for modification.
+  - Changing the current behaviour of a Class will affect all the systems using that Class.
+  - If you want the Class to perform more functions, the ideal approach is to add to the functions that already exist NOT change them.
+  - This principle aims to extend a Class’s behaviour without changing the existing behaviour of that Class. This is to avoid causing bugs wherever the Class is being used.
+- Liskov Substitution Principle states:
+  - Let q(x) be a property provable about objects of x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T.
+  - If S is a subtype of T, then objects of type T in a program may be replaced with objects of type S without altering any of the desirable properties of that program.
+  - This means that every subclass or derived class should be substitutable for their base or parent class.
+  - When a child Class cannot perform the same actions as its parent Class, this can cause bugs.
+  - If you have a Class and create another Class from it, it becomes a parent and the new Class becomes a child. 
+  - The child Class should be able to do everything the parent Class can do. This process is called Inheritance.
+  - The child Class should be able to process the same requests and deliver the same result as the parent Class or it could deliver a result that is of the same type.
+  - Ex - the parent Class delivers Coffee(it could be any type of coffee). It is acceptable for the child Class to deliver Cappucino because it is a specific type of Coffee, but it is NOT acceptable to deliver Water.If the child Class doesn’t meet these requirements, it means the child Class is changed completely and violates this principle.
+  - This principle aims to enforce consistency so that the parent Class or its child Class can be used in the same way without any errors.
+- Interface segregation principle states:
+  - A client should never be forced to implement an interface that it doesn’t use, or clients shouldn’t be forced to depend on methods they do not use.
+  - When a Class is required to perform actions that are not useful, it is wasteful and may produce unexpected bugs if the Class does not have the ability to perform those actions.
+  - A Class should perform only actions that are needed to fulfil its role. Any other action should be removed completely or moved somewhere else if it might be used by another Class in the future.
+  - This principle aims at splitting a set of actions into smaller sets so that a Class executes ONLY the set of actions it requires.
+- Dependency inversion principle states:
+  - Entities must depend on abstractions, not on concretions. It states that the high-level module must not depend on the low-level module, both  should depend on abstractions.
+  - In other words, abstractions should not depend on details. Details should depend on abstractions.
+  - This principle allows for decoupling.
+  - High-level Module(or Class): Class that executes an action with a tool.
+  - Low-level Module (or Class): The tool that is needed to execute the action
+  - Abstraction: Represents an interface that connects the two Classes.
+  - Details: How the tool works
+  - This principle says a Class should not be fused with the tool it uses to execute an action. Rather, it should be fused to the interface that will allow the tool to connect to the Class.
+  - It also says that both the Class and the interface should not know how the tool works. However, the tool needs to meet the specification of the interface.
+  - This principle aims at reducing the dependency of a high-level Class on the low-level Class by introducing an interface.
+## [Design Patterns](https://sourcemaking.com/design_patterns)
+- Design patterns are reusable solutions to the problems that we encounter in the day to day programming. They are generally targeted at solving the problems of object generation and integration. 
+- In other words, Design patterns acts as templates which can be applied to the real-world programming problems.
+- **History and evolution of design Patterns**
+  - The four authors of the book famously know as Gang of four are the ones who brought the concepts of design patterns in their book “Elements of reusable Object-Oriented software” . 
+  - Gang of Four has divided the book into two parts with first part explaining about the pros and cons of object oriented programming and the second part describes the evolution of 23 classic software design patterns.
+- **Types of Design Patterns**
+    - Gang of Four have categorised the design patterns in to 3 types based on different problems encountered in the real world applications. They are **Creational, Structural** and **Behavioural**. 
+      - **Creational design patterns**: These patterns deal with object creation and initialization. Creational pattern gives the program more flexibility in deciding which objects need to be created for a given case.
+        - Examples of Creational design patterns category : Singleton , Factory and Abstract Factory etc.
+      - **Structural design patterns** : This pattern deals with class and object composition. In simple words, This pattern focuses on decoupling interface, implementation of classes and its objects. 
+        - Examples of Structural design patterns category : Adapter,  Facade and Bridge etc.
+      - **Behavioural design patterns** : These patterns deal with communication between Classes and objects.
+        - Examples of Behavioural design patterns : Chain of Responsibility, Command and Interpreter etc.
+ ## [Singleton](https://csharpindepth.com/articles/singleton)
+ - Singleton Pattern belongs to Creational type pattern which means creational pattern explain us the creation of objects in a manner suitable to a given situation.
+ - Singleton design pattern is used when we need to ensure that only one object of a particular class is Instantiated. 
+ - That single instance created is responsible to coordinate actions across the application.
+ - Why Singleton: Concurrent access to the resource is well managed by singleton design pattern.
+ - As part of the Implementation guidelines we need to ensure that only one instance of the class exists by declaring all constructors of the class to be private.  Also, to control the singleton access we need to provide a static property that returns a single instance of the object.
+
+### Real world examples of Singleton : 
+- Exception/Information logging
+- Connection pool management 
+- File management
+- Device management such as printer spooling
+- Application Configuration management
+- Cache management
+- And Session based shopping cart are some of the real world usage of singleton design pattern
+### Static classes vs Singleton
+- Static is a keyword and Singleton is a design pattern
+- Static classes can contain only static members
+- Singleton is an object creational pattern with one instance of the class
+- Singleton can implement interfaces, inherit from other classes and it aligns with the OOPS concepts
+- Singleton object can be passed as a reference
+- Singleton supports object disposal
+- Singleton object is stored on heap
+- Singleton objects can be cloned
+
 ## References
 - [Memory Management](https://medium.com/c-programming/c-memory-management-part-1-c03741c24e4b)
 - [Finalize and Dispose](https://medium.com/c-programming/c-memory-management-part-2-finalizer-dispose-d3b3e43c08d1)
+- [TDD](https://www.c-sharpcorner.com/article/a-basic-introduction-of-unit-test-for-beginners/) using MS Test
+- [Unit Testing](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test) in VSCode and .Net core **xUnit**
+- [Unit Testing](https://docs.microsoft.com/en-us/visualstudio/test/unit-test-basics?view=vs-2019) in Visual studio
+- [Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns)
+- [Design Patterns video series](https://www.youtube.com/playlist?list=PL6n9fhu94yhUbctIoxoVTrklN3LMwTCmd)
+- [Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns))
 
