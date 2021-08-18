@@ -2,15 +2,23 @@ using Models;
 using BL;
 using System;
 using System.Collections.Generic;
+using Serilog;
 
 namespace UI
 {
     public class MainMenu : IMenu
     {
+        
         private IPetBL _petbl;
         public MainMenu(IPetBL bl)
         {
             _petbl = bl;
+            Log.Logger=new LoggerConfiguration()
+                            .MinimumLevel.Debug()
+                            .WriteTo.Console()
+                            .WriteTo.File("../logs/petlogs.txt", rollingInterval:RollingInterval.Day)
+                            .CreateLogger();
+            Log.Information("UI begining");
         }
 
         public void Start()
@@ -96,11 +104,16 @@ namespace UI
                 try
                 {
                     mealToFeed = _petbl.AddAMeal(mealToFeed);
-                    Console.WriteLine("meal has been added! " + mealToFeed.Time);
+                    //Console.WriteLine("meal has been added! " + mealToFeed.Time);
+                    Log.Debug("meal has been added! " + mealToFeed.Time);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex);
+                    Log.Error(ex, "Cat wasn't been fed, something wrong happened");
+                    //Console.WriteLine(ex);
+                }
+                finally{
+                    Log.CloseAndFlush();
                 }
             }
         }

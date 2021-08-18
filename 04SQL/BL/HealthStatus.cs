@@ -12,7 +12,7 @@ namespace BL
         /// <param name="ribCage">Measure of your cat's rib cage. Ideally, you want to do this at the 9th rib level, located by the cat's front legs.</param>
         /// <param name="length">Measure of the length of your cat's lower back leg from the knee to the ankle.</param>
         /// <returns> Feline Body Mass Index</returns>        
-            public static double Fbmi(double ribCage, double legLength){
+    public static double Fbmi(double ribCage, double legLength){
             if(ribCage>0 && legLength>0){
                 System.Console.WriteLine($"Rib cage size - {ribCage} inches , Leg Length - {legLength} inches");
                 var fbmi=(((ribCage/0.7062)-legLength)/0.9156)-legLength;
@@ -22,7 +22,7 @@ namespace BL
             else
                 throw new ArgumentException("ribcage and leg length must be greater than 0");
         } 
-     public static FbmiInterpretation CatHealth(double fbmi){
+    public static FbmiInterpretation CatHealth(double fbmi){
             FbmiInterpretation interpretation=FbmiInterpretation.Underweight;
             if(fbmi<15)
                 interpretation=FbmiInterpretation.Underweight;
