@@ -23,11 +23,12 @@ namespace App
             // UsingData.Deserialize_Json();
 
             //DelCatOperations del=new DelCatOperations(UsingData.Serialize_Xml);
-            var del=new Action(UsingData.Serialize_Xml);
+            var del=new Action(UsingData.Serialize_Json);
+            // UsingData.Serialize_Xml
             //Func<int, string, int> del1;
             //Predicate<string> del2;
-            del += UsingData.Deserialize_Xml; // multicast delegate //store method in invocation List
-            del += UsingData.Serialize_Json;
+            // del += UsingData.Deserialize_Xml; // multicast delegate //store method in invocation List
+            // del += ;
             del += UsingData.Deserialize_Json;
              // Invocation of delegate
             del.Invoke();  //del();
