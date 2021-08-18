@@ -4,8 +4,20 @@ namespace BL
     public enum FbmiInterpretation{
         Underweight, NormalWeight,OverWeight,Obese
     }
-    public class HealthStatus
+    public sealed class HealthStatus
     {
+        private static HealthStatus instance=null;
+        private HealthStatus()
+        {
+            
+        }
+        public HealthStatus getInstance {
+            get{
+                if(instance==null)
+                    return new HealthStatus();
+                return instance;
+            }
+         }
        /// <summary>
         /// This method estimates your cat's body's fat content based on its proportions. FBMI = (((rib cage/0.7062) - leg length )/0.9156) - leg length.
         /// </summary>
