@@ -28,6 +28,11 @@ namespace DL.Entities
                     .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
+                entity.Property(e=>e.ribcage)
+                      .HasColumnType("float");
+
+                entity.Property(e=>e.leglength)
+                      .HasColumnType("float");
             });
 
             modelBuilder.Entity<Meal>(entity =>

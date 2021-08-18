@@ -12,6 +12,8 @@ namespace DL.Entities
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public float ribcage { get; set; }
+        public float leglength { get; set; }
 
         public virtual ICollection<Meal> Meals { get; set; }
     }

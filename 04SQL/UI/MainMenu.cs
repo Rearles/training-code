@@ -110,7 +110,10 @@ namespace UI
             List<Cat> cats = _petbl.ViewAllCats();
             foreach(Cat cat in cats)
             {
-                Console.WriteLine(cat.Name);
+                var fbmi= HealthStatus.Fbmi(cat.ribcage, cat.leglength);
+                Console.WriteLine($"{cat.Name}");
+                Console.WriteLine($"{HealthStatus.CatHealth(fbmi)}");
+                Console.WriteLine("-----------------------------------------");
             }
         }
 
