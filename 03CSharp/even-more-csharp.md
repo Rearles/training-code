@@ -423,6 +423,18 @@ interface IB
 - **Unit Testing** is important component of developer testing which is heavily used in TDD.
   - In.Net/.Net Core supports multiple frameworks for testing 
   - MSTest, NUnit, xUnit.
+
+## [Logging](https://docs.microsoft.com/en-us/dotnet/core/diagnostics/logging-tracing)
+- Logging and tracing are really two names for the same technique. The simple technique has been used since the early days of computers. It simply involves instrumenting an application to write output to be consumed later.
+- [Built-in logging providers](https://docs.microsoft.com/en-us/dotnet/core/extensions/logging-providers#built-in-logging-providers)
+    - Console
+    - Debug
+    - EventSource
+    - EventLog
+- [Third-party logging providers](https://docs.microsoft.com/en-us/dotnet/core/extensions/logging-providers#third-party-logging-providers)
+    - [Serilog](https://serilog.net/)
+    - [NLog](https://nlog-project.org/)
+
 ## [SOLID Principles](https://medium.com/backticks-tildes/the-s-o-l-i-d-principles-in-pictures-b34ce2f1e898)
 - SOLID is an acronym for the first five object-oriented design (OOD) principles by Robert C. Martin
 - These principles establish practices that lend to developing software with considerations for maintaining and extending as the project grows.

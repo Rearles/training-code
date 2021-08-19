@@ -16,7 +16,7 @@ namespace DL
         public List<Models.Cat> GetAllCats()
         {
             return _context.Cats.Select(
-                cat => new Models.Cat(cat.Id, cat.Name)
+                cat => new Models.Cat(cat.Id, cat.Name, cat.ribcage, cat.leglength)
             ).ToList();
         }
 
@@ -52,7 +52,7 @@ namespace DL
                 .FirstOrDefault(cat => cat.Name == name);
             if(foundCat != null)
             {
-                return new Models.Cat(foundCat.Id, foundCat.Name);
+                return new Models.Cat(foundCat.Id, foundCat.Name,foundCat.ribcage ,foundCat.leglength);
             }
             return new Models.Cat();
         }        
