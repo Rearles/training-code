@@ -2,6 +2,7 @@ using Models;
 using DL.Entities;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace DL
 {
@@ -55,6 +56,19 @@ namespace DL
                 return new Models.Cat(foundCat.Id, foundCat.Name,foundCat.ribcage ,foundCat.leglength);
             }
             return new Models.Cat();
-        }        
+        }
+
+        public List<Models.Meal> GetMealsByCatId(int catId)
+        {
+            Console.WriteLine("I'm in DL, getting meals by Id, {0}", catId);
+            return _context.Meals
+                .Where(meal => meal.CatId == catId)
+                .Select(meal => new Models.Meal{
+                    Time = meal.Time,
+                    FoodType = meal.FoodType,
+                    CatId = (int)meal.CatId
+                })
+                .ToList();
+        }
     }
 }

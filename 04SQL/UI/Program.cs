@@ -19,8 +19,8 @@ DbContextOptions<petdbContext> options = new DbContextOptionsBuilder<petdbContex
 
 var context = new petdbContext(options);
 
-HealthStatus status;
-var obj=status.getInstance;
+// HealthStatus status;
+// var obj=status.getInstance;
 
 IMenu menu = new MainMenu(new PetBL(new PetRepo(context)));
 menu.Start();

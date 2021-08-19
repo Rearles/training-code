@@ -32,5 +32,10 @@ namespace BL
         {
             return _repo.SearchCatByName(name);
         }
+
+        public List<Meal> GetMealsByCatId(int catId)
+        {
+            return _repo.GetMealsByCatId(catId);
+        }
     }
 }

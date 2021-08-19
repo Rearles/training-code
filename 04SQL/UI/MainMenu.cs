@@ -32,6 +32,7 @@ namespace UI
                 Console.WriteLine("[2] Feed a cat");
                 Console.WriteLine("[3] View all cats");
                 Console.WriteLine("[4] Search for a cat");
+                Console.WriteLine("[5] View Meals for a cat");
 
                 switch(Console.ReadLine())
                 {
@@ -53,7 +54,11 @@ namespace UI
                     break;
 
                     case "4":
-                        SearchCatByName();
+                        SearchCatByNameUI();
+                    break;
+
+                    case "5":
+                        ViewMealsByCat();
                     break;
 
                     default:
@@ -159,19 +164,39 @@ namespace UI
             } while(true);
         }
 
-        private void SearchCatByName()
+        private void SearchCatByNameUI()
         {
             string input;
             Console.WriteLine("Enter the name of the cat to search: ");
             input = Console.ReadLine();
 
             Cat foundCat = _petbl.SearchCatByName(input);
+            
             if(foundCat.Name is null)
             {
                 Console.WriteLine($"{input} is missing, please return them asap :'(");
             }
             else {
                 Console.WriteLine("We found the cat! {0}", foundCat.Name);
+            }
+        }
+
+        private void ViewMealsByCat()
+        {
+            //ToDo: Somebody fix it 
+            // compiler is trying to do a weird cast from int to string for no reason
+            // string input;
+            // Console.WriteLine("Enter the name of the cat to view meals: ");
+            // input = Console.ReadLine();
+            // Cat foundCat = _petbl.SearchCatByName(input);
+
+            List<Cat> cats = _petbl.ViewAllCats();
+            Cat foundCat = SelectACat(cats, "Pick a cat to feed");
+
+            List<Meal> meals = _petbl.GetMealsByCatId(foundCat.Id);
+            foreach(Meal meal in meals)
+            {
+                Console.WriteLine($"Type: {meal.FoodType} Time: {meal.Time}");
             }
         }
     }

@@ -13,5 +13,7 @@ namespace DL
         Meal AddAMeal(Meal meal);
 
         Cat SearchCatByName(string name);
+
+        List<Meal> GetMealsByCatId(int catId);
     }
 }
