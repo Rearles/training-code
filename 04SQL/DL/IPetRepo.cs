@@ -15,5 +15,7 @@ namespace DL
         Cat SearchCatByName(string name);
 
         List<Meal> GetMealsByCatId(int catId);
+
+        void DeleteACat(Cat cat);
     }
 }

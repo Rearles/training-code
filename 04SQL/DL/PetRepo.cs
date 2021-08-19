@@ -70,5 +70,16 @@ namespace DL
                 })
                 .ToList();
         }
+
+        public void DeleteACat(Models.Cat cat)
+        {
+            Entities.Cat catToDelete = new Entities.Cat
+            {
+                Id = cat.Id,
+                Name = cat.Name
+            };
+            _context.Cats.Remove(catToDelete);
+            _context.SaveChanges();
+        }
     }
 }
