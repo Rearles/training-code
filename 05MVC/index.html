@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro To HTML</title>
+    <!-- Style Tag for internal css styling -->
+    <style>
+        body {
+            background-color: antiquewhite;
+        }
+    </style>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">HTML: Intro</a>
+                </li>
+                <li>
+                    <a href="./thespecifics.html">HTML:The Specifics</a>
+                </li>
+                <li>
+                    <a href="./css.html">Cascading Style Sheet</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <h1>What is HTML?</h1>
+    <p>HTML stands for Hypertext Markup Language, and it is a mark up language to define the structure of web pages</p>
+    <p>It uses tags (also called elements) and attributes to describe the structure</p>
+    <p>The structure of the page is organized in tree-like structure, and the structure is called DOM, Document Object Model <small>This becomes important later when we want to interact with these elements</small></p>
+    <br/>
+    <div>
+    <h2>How is the page organized?</h2>
+    <p>All html pages begin with the tag <pre><code>&lt;!DOCTYPE html&gt;</code></pre>. This denotes that this document is of html type</p>
+    <p>Further more, the pages are organized in the following way
+        <pre><code lang="html">
+            &lt;html&gt;
+                &lt;head&gt;
+
+                &lt;/head&gt;
+                &lt;body&gt;
+
+                &lt;/body&gt;
+            &lt;/html&gt;
+        </code></pre>
+    </p>
+    </div>
+    <article>
+        <h3>The Head</h3>
+        <p>
+            The head tag in html contains meta data (the data about itself) about the page. In the head tag, it contains information such as which encoding it is using and title for the page.
+            This is also the place to include the link to external stylesheets and <code>&lt;style&gt;&lt;/style&gt</code> tag.
+        </p>
+    </article>
+    <article>
+        <h3>The Body</h3>
+        <p>
+            This is where the content of the page goes to. Everything you see in the web browser's viewport is here.
+        </p>
+    </article>
+    <article>
+        <h3>Attributes</h3>
+        <p>
+            Attributes are fields that provides additional information of a tag. For example, anchor tag has href attribute to describe its destination, image tag has src attributes to denote the resource's location.
+        </p>
+        <p>
+            <b>Global Attributes</b> are attributes that are available to all elements. They include attributes such as class or id.
+        </p>
+        <p>Classes and Id's are used to identify elements. Classes are used to identify a group of elements where as id's are used to identify a single (unique) element in the page</p>
+    </article>
+    <article>
+        <h4>The Inspector</h4>
+        <p>
+            Knowing how to use this is crucial in front end development. It's loaded with super useful functionalities that makes working with html/css/js easier and faster.
+        </p>
+    </article>
+</body>
+</html>

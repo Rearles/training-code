@@ -1,0 +1,36 @@
+body {
+    background-color: aquamarine;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#id {
+    font-weight: bold;
+    color: red;
+}
+
+a:hover {
+    color: green;
+}
+
+a:visited {
+    color: orange;
+}
+
+#pel::first-letter {
+    font-size: larger;
+}
+
+#box-model-button{
+    border: 1px solid black;
+    border-radius: 5%;
+    background-color: skyblue;
+    margin: 2em;
+    padding: 3em;
+}
+
+* {
+    background-color: blanchedalmond;
+}
