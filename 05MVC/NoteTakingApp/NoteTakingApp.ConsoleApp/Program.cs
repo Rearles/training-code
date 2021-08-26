@@ -1,5 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using NoteTakingApp.DataAccess.Entities;
 
 namespace NoteTakingApp.ConsoleApp
 {
@@ -22,10 +27,16 @@ namespace NoteTakingApp.ConsoleApp
 
     class Program
     {
-        static List<Note> s_notes = new List<Note>();
-
         static void Main(string[] args)
         {
+            string connectionString = File.ReadAllText("C:/revature/notesdb-connection-string.txt");
+
+            var options = new DbContextOptionsBuilder<NotesDbContext>()
+                .LogTo(message => Debug.WriteLine(message))
+                .UseSqlServer(connectionString)
+                .Options;
+            using var context = new NotesDbContext(options);
+
             Console.WriteLine("Welcome to the Note Taking App");
 
             while (true)
@@ -41,11 +52,11 @@ namespace NoteTakingApp.ConsoleApp
 
                 if (input == "1")
                 {
-                    ListNotes();
+                    ListNotes(context);
                 }
                 else if (input == "2")
                 {
-                    AddNewNote();
+                    AddNewNote(context);
                 }
                 else if (input == "3")
                 {
@@ -58,7 +69,7 @@ namespace NoteTakingApp.ConsoleApp
             }
         }
 
-        private static void AddNewNote()
+        private static void AddNewNote(NotesDbContext context)
         {
             Console.WriteLine();
             Console.WriteLine("Enter note contents:");
@@ -67,19 +78,22 @@ namespace NoteTakingApp.ConsoleApp
             string input2 = Console.ReadLine();
             var note = new Note { Text = input2 };
 
-            s_notes.Add(note);
+            context.Notes.Add(note);
+            context.SaveChanges();
         }
 
-        private static void ListNotes()
+        private static void ListNotes(NotesDbContext context)
         {
+            var notes = context.Notes.ToList();
+
             Console.WriteLine();
-            if (s_notes.Count == 0)
+            if (notes.Count == 0)
             {
                 Console.WriteLine("(none)");
             }
             else
             {
-                foreach (var note in s_notes)
+                foreach (var note in notes)
                 {
                     Console.WriteLine(note.Text);
                 }
