@@ -4,7 +4,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using NoteTakingApp.DataAccess;
 using NoteTakingApp.DataAccess.Entities;
+using NoteTakingApp.Domain;
 
 namespace NoteTakingApp.ConsoleApp
 {
@@ -37,14 +39,18 @@ namespace NoteTakingApp.ConsoleApp
                 .Options;
             using var context = new NotesDbContext(options);
 
+            IRepository repo = new Repository(context);
+
             Console.WriteLine("Welcome to the Note Taking App");
 
             while (true)
             {
                 Console.WriteLine();
                 Console.WriteLine("1: List notes");
-                Console.WriteLine("2: Add new note");
-                Console.WriteLine("3: Quit");
+                Console.WriteLine("2: List SQL notes");
+                Console.WriteLine("3: Add new note");
+                Console.WriteLine("4: Add new SQL note");
+                Console.WriteLine("5: Quit");
                 Console.WriteLine();
                 Console.Write("> ");
 
@@ -52,13 +58,21 @@ namespace NoteTakingApp.ConsoleApp
 
                 if (input == "1")
                 {
-                    ListNotes(context);
+                    ListNotes(repo);
                 }
                 else if (input == "2")
                 {
-                    AddNewNote(context);
+                    ListNotes(null);
                 }
                 else if (input == "3")
+                {
+                    AddNewNote(null);
+                }
+                else if (input == "4")
+                {
+                    AddNewNote(null);
+                }
+                else if (input == "5")
                 {
                     break;
                 }
@@ -69,22 +83,22 @@ namespace NoteTakingApp.ConsoleApp
             }
         }
 
-        private static void AddNewNote(NotesDbContext context)
+        private static void AddNewNote(NotesDbContext context, string tag = null)
         {
             Console.WriteLine();
             Console.WriteLine("Enter note contents:");
             Console.Write("> ");
 
             string input2 = Console.ReadLine();
-            var note = new Note { Text = input2 };
+            var note = new DataAccess.Entities.Note { Text = input2 };
 
             context.Notes.Add(note);
             context.SaveChanges();
         }
 
-        private static void ListNotes(NotesDbContext context)
+        private static void ListNotes(IRepository repo, string tag = null)
         {
-            var notes = context.Notes.ToList();
+            var notes = repo.GetNotes();
 
             Console.WriteLine();
             if (notes.Count == 0)
@@ -95,7 +109,8 @@ namespace NoteTakingApp.ConsoleApp
             {
                 foreach (var note in notes)
                 {
-                    Console.WriteLine(note.Text);
+                    var tags = $"[{string.Join(", ", note.Tags)}]";
+                    Console.WriteLine($"{tags} {note.Text}");
                 }
             }
         }

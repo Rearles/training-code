@@ -5,15 +5,14 @@ using System.Collections.Generic;
 
 namespace NoteTakingApp.DataAccess.Entities
 {
-    public partial class Note
+    public partial class Tag
     {
-        public Note()
+        public Tag()
         {
             NoteTags = new HashSet<NoteTag>();
         }
 
-        public int Id { get; set; }
-        public string Text { get; set; }
+        public string Name { get; set; }
 
         public virtual ICollection<NoteTag> NoteTags { get; set; }
     }
