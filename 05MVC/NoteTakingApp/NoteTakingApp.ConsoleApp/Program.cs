@@ -3,9 +3,26 @@ using System.Collections.Generic;
 
 namespace NoteTakingApp.ConsoleApp
 {
+    // Entity Framework Core
+    // database-first approach steps...
+    /*
+     * 1. recommended: have a separate data access library project.
+     * 2. install Microsoft.EntityFrameworkCore.Design and Microsoft.EntityFrameworkCore.SqlServer
+     *    to the project you'll put the EF model in.
+     * 3. using Git Bash / terminal, from the project folder run (split into several lines for clarity):
+     *    dotnet ef dbcontext scaffold <connection-string-in-quotes>
+     *      Microsoft.EntityFrameworkCore.SqlServer
+     *      --force
+     *      --no-onconfiguring
+     *    https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet#dotnet-ef-dbcontext-scaffold
+     *    (if you don't have dotnet ef installed, run: "dotnet tool install --global dotnet-ef")
+     *    (this will fail if your projects do not compile)
+     * 4. any time you change the structure of the tables (DDL), go to step 3.
+     */
+
     class Program
     {
-        static List<string> s_notes = new List<string>();
+        static List<Note> s_notes = new List<Note>();
 
         static void Main(string[] args)
         {
@@ -48,8 +65,9 @@ namespace NoteTakingApp.ConsoleApp
             Console.Write("> ");
 
             string input2 = Console.ReadLine();
+            var note = new Note { Text = input2 };
 
-            s_notes.Add(input2);
+            s_notes.Add(note);
         }
 
         private static void ListNotes()
@@ -63,7 +81,7 @@ namespace NoteTakingApp.ConsoleApp
             {
                 foreach (var note in s_notes)
                 {
-                    Console.WriteLine(note);
+                    Console.WriteLine(note.Text);
                 }
             }
         }
