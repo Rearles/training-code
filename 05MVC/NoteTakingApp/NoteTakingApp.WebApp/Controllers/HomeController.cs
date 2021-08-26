@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using NoteTakingApp.Domain;
 using NoteTakingApp.WebApp.Models;
 
 namespace NoteTakingApp.WebApp.Controllers
@@ -20,7 +21,12 @@ namespace NoteTakingApp.WebApp.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var notes = new List<Note>
+            {
+                new Note { Id = 1, Text = "asdf" },
+                new Note { Id = 2, Text = "asdf2" }
+            };
+            return View(model: notes);
         }
 
         public IActionResult Privacy()

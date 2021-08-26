@@ -1,8 +1,25 @@
-﻿@{
+﻿@model IEnumerable<NoteTakingApp.Domain.Note>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Note text</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var note in Model)
+    {
+      <tr>
+        <td>@note.Text</td>
+      </tr>
+    }
+  </tbody>
+</table>
