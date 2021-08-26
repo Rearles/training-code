@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,14 +13,23 @@ namespace HelloAspNetCore
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            // step 1 - "startup"
+            IHostBuilder hostBuilder = CreateHostBuilder(args);
+            IHost host = hostBuilder.Build();
+            // step 2 - run, listen for http connections forever
+            host.Run();
+            // we never get here (unless we put a try catch out here or something)
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+        public static IHostBuilder CreateHostBuilder(string[] args)
+        {
+            // applies defaults and references the Startup class for our own
+            // custom behavior
+            return Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+        }
     }
 }

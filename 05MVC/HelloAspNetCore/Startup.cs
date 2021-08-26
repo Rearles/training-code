@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -32,8 +32,37 @@ namespace HelloAspNetCore
             {
                 endpoints.MapGet("/", async context =>
                 {
+                    //throw new Exception("error");
                     await context.Response.WriteAsync("Hello World!");
                 });
+            });
+
+            // the job of this method is to call "Run" or "Use" methods on
+            // the IApplicationBuilder. each one sets up a "middleware".
+            // every HTTP request goes through the middleware in order.
+
+            app.UseStaticFiles();
+
+            app.Run(async context =>
+            {
+                // this object has all the details of the request
+                HttpRequest request = context.Request;
+
+                string path = request.Path;
+
+                // we can modify this object to set up the response.
+                HttpResponse response = context.Response;
+
+                response.ContentType = "text/html";
+                await response.WriteAsync(@$"<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    Hello {path}!
+  </body>
+</html>
+");
             });
         }
     }
