@@ -10,6 +10,8 @@ namespace SimpleOrderApp.Data.Model
 
         public string Name { get; set; }
 
+        public string Address { get; set; }
+
         public int Stock { get; set; }
 
         public List<OrderEntity> Orders { get; set; } // navigation property
