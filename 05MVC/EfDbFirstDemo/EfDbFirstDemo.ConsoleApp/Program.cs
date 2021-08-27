@@ -82,8 +82,10 @@ namespace EfDbFirstDemo.ConsoleApp
 
             foreach (Track track in tracks)
             {
-                //context.Genres.First(x => x.GenreId)
-                    // ^ writing code like that totally missing the point of all the work an ORM is supposed to do for you.
+                //var genre = context.Genres.First(g => g.GenreId == track.GenreId)
+                    // ^ writing code like that is missing the point of all the work an ORM is supposed to do for you.
+                    //   instead of make a separate query based on FK, use Include and
+                    //   navigation properties when they are more convenient.
                 Console.WriteLine($"{track.TrackId} - {track.Name} ({track?.Genre?.Name})");
             }
 
@@ -113,9 +115,13 @@ namespace EfDbFirstDemo.ConsoleApp
             //List<string> info = context.Tracks
             //    .Include(t => t.Genre)
             //    .OrderBy(t => t.Name)
-            //    .Where(track => SomeComplexMethod(track)) // this can't become sql, so, EF will fetch every row and then discard them
+            //    .Where(track => SomeComplexMethod(track)) // this can't become sql, so, EF will (might?) fetch every row and then discard them
             //    .Take(5)
             //    .ToList();
+
+            // that said, it can be hard to predict what EF will do with a query.
+            // in such cases, use logging to just check directly what
+            // SQL is generated.
         }
 
         static void EditOneOfThoseTracks()
