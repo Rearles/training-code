@@ -57,7 +57,20 @@ namespace NoteTakingApp.DataAccess
 
         public Domain.Note AddNote(Domain.Note note)
         {
-            return null;
+            var entity = new Entities.Note
+            {
+                Text = note.Text,
+                NoteTags = note.Tags?.Select(s =>
+                    new NoteTag { NameNavigation = new Tag { Name = s } }).ToList()
+            };
+
+            _context.Notes.Add(entity);
+            // will also create any new tags, if they don't exist
+            _context.SaveChanges();
+
+            note.Id = entity.Id;
+
+            return note;
         }
     }
 }
