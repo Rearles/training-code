@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace NoteTakingApp.Domain
         public string Text { get; set; }
         public List<string> Tags { get; set; }
 
+        [DisplayName("Word count")]
         public int WordCount
         {
             get
