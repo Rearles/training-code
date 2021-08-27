@@ -14,6 +14,8 @@ July 2021 Arlington .NET / Nick Escalona
 * (optional: asynchronous network & file I/O)
 
 ### design
+* project layout given here is only a suggestion. the general idea of
+  separation of concerns is a requirement.
 * use EF Core (either database-first approach with a SQL script or code-first approach with migrations)
 * use an Azure SQL DB in third normal form; include a database diagram
 * don't use public fields
