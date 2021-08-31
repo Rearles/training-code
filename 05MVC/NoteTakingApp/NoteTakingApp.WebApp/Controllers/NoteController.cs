@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Storage;
 using NoteTakingApp.Domain;
+using NoteTakingApp.WebApp.Models;
 
 namespace NoteTakingApp.WebApp.Controllers
 {
@@ -34,14 +36,35 @@ namespace NoteTakingApp.WebApp.Controllers
         }
 
         [HttpPost] // form submission (by default)
-        public IActionResult Create(Note note)
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(CreatedNote viewModel)
         {
             // ASP.NET "model binding"
             // - fill in action method parameters with data from the request
             //   (URL path, URL query string, form data, etc.)
             //   based on compatible data type and name.
 
-            _repo.AddNote(note);
+            // validate all action method parameters as user input
+            if (!ModelState.IsValid)
+            {
+                // if ModelState has errors, that can influence view rendering
+                // (the validation tag helpers look at it)
+                return View(viewModel);
+                //return View("ErrorMessage", model: "invalid");
+            }
+
+            var note = new Note { Text = viewModel.Text };
+
+            try
+            {
+                _repo.AddNote(note);
+            }
+            catch (InvalidOperationException e)
+            {
+                ModelState.AddModelError(key: "Text", errorMessage: e.Message);
+                ModelState.AddModelError(key: "", errorMessage: "general errors could go up here");
+                return View(viewModel);
+            }
 
             //return View("Details", note);
             return RedirectToAction("Details", new { id = note.Id });

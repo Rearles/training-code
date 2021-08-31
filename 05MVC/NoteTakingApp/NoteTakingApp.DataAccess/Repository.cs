@@ -55,8 +55,22 @@ namespace NoteTakingApp.DataAccess
             return null;
         }
 
+        // also enforces no-duplicate-text rule
         public Domain.Note AddNote(Domain.Note note)
         {
+            // example of naive bad EF code that loads unneeded data
+            //foreach (var otherNote in _context.Notes)
+            //{
+            //    if (otherNote.Text == note.Text)
+            //    {
+            //        throw new InvalidOperationException("note with text already exists");
+            //    }
+            //}
+            if (_context.Notes.Any(n => n.Text == note.Text))
+            {
+                throw new InvalidOperationException("note with text already exists");
+            }
+
             var entity = new Entities.Note
             {
                 Text = note.Text,

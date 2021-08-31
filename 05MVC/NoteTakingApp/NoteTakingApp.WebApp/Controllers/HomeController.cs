@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -36,7 +37,23 @@ namespace NoteTakingApp.WebApp.Controllers
 
             // web developers culturally prefer dynamically typed stuff more
             // so than backend developers
-            ViewData["key"] = "value";
+            ViewBag.key = "value";
+            ViewData["note"] = new Note { Id = -5, Text = "asdf" };
+
+            TempData["note"] = JsonSerializer.Serialize(ViewData["note"]);
+            JsonSerializer.Deserialize<Note>((string)TempData["note"]);
+            // TempData is meant for small pieces of data
+            // which are discarded as soon as you're done with them
+            
+            if (!TempData.ContainsKey("viewTracker"))
+            {
+                TempData["viewTracker"] = 1;
+            }
+            else
+            {
+                TempData["viewTracker"] = (int)TempData["viewTracker"] + 1;
+            }
+
             return View(model: notes);
         }
 

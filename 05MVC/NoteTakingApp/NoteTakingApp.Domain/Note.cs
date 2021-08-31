@@ -9,8 +9,24 @@ namespace NoteTakingApp.Domain
 {
     public class Note
     {
+
+        private string _text;
+
         public int Id { get; set; }
-        public string Text { get; set; }
+
+        public string Text
+        {
+            get => _text;
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("text is required");
+                }
+                _text = value;
+            }
+        }
+
         public List<string> Tags { get; set; }
 
         [DisplayName("Word count")]

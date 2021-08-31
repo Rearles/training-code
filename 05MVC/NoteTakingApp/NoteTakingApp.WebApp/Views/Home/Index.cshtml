@@ -1,14 +1,21 @@
 ﻿@model IEnumerable<NoteTakingApp.Domain.Note>
 
 @{
-    ViewData["Title"] = "Home Page";
+  ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+  <h1 class="display-4">Welcome</h1>
 </div>
 
-<div>@ViewData["data"]</div>
+<div>@ViewData["key"]</div>
+<div>@(((NoteTakingApp.Domain.Note)ViewData["note"]).Id)</div>
+<div>@ViewBag.note.Id</div>
+
+@* every time you access something in tempdata using the indexing operator [],
+  that key-value pair is marked for being deleted at the end of this request. *@
+@* use methods Keep and Peek to explicitly keep the data around longer. *@
+<div>views: @TempData.Peek("viewTracker")</div>
 
 <table>
   <thead>
