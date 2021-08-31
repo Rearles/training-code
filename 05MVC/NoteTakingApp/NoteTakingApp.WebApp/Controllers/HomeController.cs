@@ -22,7 +22,7 @@ namespace NoteTakingApp.WebApp.Controllers
             _repo = repo;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string texttoprint)
         {
             var notes = _repo.GetNotes();
             // ways to get data from controller to the view:
@@ -37,7 +37,7 @@ namespace NoteTakingApp.WebApp.Controllers
 
             // web developers culturally prefer dynamically typed stuff more
             // so than backend developers
-            ViewBag.key = "value";
+            ViewBag.key = texttoprint;
             ViewData["note"] = new Note { Id = -5, Text = "asdf" };
 
             TempData["note"] = JsonSerializer.Serialize(ViewData["note"]);

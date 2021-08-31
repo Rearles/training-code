@@ -82,6 +82,10 @@ namespace NoteTakingApp.WebApp
 
             app.UseEndpoints(endpoints =>
             {
+                //endpoints.MapControllerRoute(
+                //    name: "userdetails",
+                //    pattern: "userdetails/{email}",
+                //    defaults: new { controller = "User", action = "Details" });
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

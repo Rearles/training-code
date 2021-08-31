@@ -20,5 +20,8 @@ namespace NoteTakingApp.WebApp.Models
         //    //var repo = validationContext.GetService(typeof(IRepository));
         //    //repo.
         //}
+
+        [DataType(DataType.PhoneNumber)]
+        public string Phone { get; set; }
     }
 }

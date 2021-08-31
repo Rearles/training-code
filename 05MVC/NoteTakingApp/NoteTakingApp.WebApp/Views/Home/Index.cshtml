@@ -12,6 +12,9 @@
 <div>@(((NoteTakingApp.Domain.Note)ViewData["note"]).Id)</div>
 <div>@ViewBag.note.Id</div>
 
+<div><a asp-action="Index" asp-route-id="hello">link 1</a></div>
+<div><a asp-action="Index" asp-route-texttoprint="hello">link 2</a></div>
+
 @* every time you access something in tempdata using the indexing operator [],
   that key-value pair is marked for being deleted at the end of this request. *@
 @* use methods Keep and Peek to explicitly keep the data around longer. *@

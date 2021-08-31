@@ -9,8 +9,6 @@ leftover from last week:
 (Route parameters, query string, form data)
 - Partial views
 - Filters (Authorization, Exception, Resource, Action, Result)
-- Testing (Mock, Moq, integration testing)
-- EF lazy loading
 
 ---
 
@@ -44,9 +42,11 @@ leftover from last week:
 
 ---
 
-may be pushed to week 7:
+may be pushed:
 
 - Docker
     - VM vs. container, daemon/client, Docker Machine
     - container, image, Dockerfile, registry
     - CLI commands, Dockerfile commands
+- Testing (Mock, Moq, integration testing)
+- EF lazy loading
