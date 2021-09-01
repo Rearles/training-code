@@ -12,19 +12,29 @@ pr: none
 stages:
 - stage: build
   jobs:
-  - job: build
 
+  - job: build-linux
     pool:
       vmImage: ubuntu-latest
-
     steps:
     - script: dotnet build
-      displayName: dotnet build (script)
+      displayName: dotnet build
       workingDirectory: 05MVC/NoteTakingApp
 
-    - task: DotNetCoreCLI@2
-      displayName: dotnet build (task)
+  - job: build-windows-vs
+    pool:
+      vmImage: windows-latest
+    steps:
+    - task: VSBuild@1
+      displayName: visual studio build
       inputs:
-        command: 'build'
-        projects: '05MVC/NoteTakingApp'
+        solution: '05MVC\NoteTakingApp\*.sln'
+
+  - job: build-windows-cli
+    pool:
+      vmImage: windows-latest
+    steps:
+    - script: dotnet build
+      displayName: dotnet build
+      workingDirectory: 05MVC/NoteTakingApp
 
