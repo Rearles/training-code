@@ -16,8 +16,14 @@ stages:
   - job: build-linux
     pool:
       vmImage: ubuntu-latest
+    strategy:
+      matrix:
+        debug:
+          configuration: Debug
+        release:
+          configuration: Release
     steps:
-    - script: dotnet build
+    - script: dotnet build --configuration $(configuration)
       displayName: dotnet build
       workingDirectory: 05MVC/NoteTakingApp
 
@@ -30,7 +36,7 @@ stages:
       inputs:
         solution: '05MVC\NoteTakingApp\*.sln'
 
-  - job: build-windows-cli
+  - job: build-cli
     pool:
       vmImage: windows-latest
     steps:
