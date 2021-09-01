@@ -9,6 +9,9 @@ trigger:
 
 pr: none
 
+variables:
+  slnPath: 05MVC/NoteTakingApp
+
 stages:
 - stage: build
   jobs:
@@ -25,7 +28,7 @@ stages:
     steps:
     - script: dotnet build --configuration $(configuration)
       displayName: dotnet build
-      workingDirectory: 05MVC/NoteTakingApp
+      workingDirectory: $(slnPath)
 
   - job: build_windows_vs
     pool:
@@ -35,12 +38,12 @@ stages:
       displayName: nuget restore
       inputs:
         command: 'restore'
-        restoreSolution: '05MVC/NoteTakingApp/*.sln'
+        restoreSolution: '$(slnPath)/*.sln'
         feedsToUse: 'select'
     - task: VSBuild@1
       displayName: visual studio build
       inputs:
-        solution: '05MVC\NoteTakingApp\*.sln'
+        solution: '$(slnPath)/*.sln'
 
   - job: build_cli
     pool:
@@ -48,5 +51,5 @@ stages:
     steps:
     - script: dotnet build
       displayName: dotnet build
-      workingDirectory: 05MVC/NoteTakingApp
+      workingDirectory: $(slnPath)
 
