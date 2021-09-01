@@ -5,6 +5,7 @@ trigger:
   paths:
     include:
     - 05MVC/NoteTakingApp
+    - 06DevOps/azure-pipelines-notes-app.yml
 
 pr: none
 
