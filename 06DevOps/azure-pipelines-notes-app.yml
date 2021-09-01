@@ -18,7 +18,13 @@ stages:
       vmImage: ubuntu-latest
 
     steps:
+    - script: dotnet build
+      displayName: dotnet build (script)
+      workingDirectory: 05MVC/NoteTakingApp
+
     - task: DotNetCoreCLI@2
+      displayName: dotnet build (task)
       inputs:
         command: 'build'
+        projects: '05MVC/NoteTakingApp'
 
