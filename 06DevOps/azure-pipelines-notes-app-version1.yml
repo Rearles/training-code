@@ -1,0 +1,55 @@
+trigger:
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - 05MVC/NoteTakingApp
+    - 06DevOps/azure-pipelines-notes-app.yml
+
+pr: none
+
+variables:
+  slnPath: 05MVC/NoteTakingApp
+
+stages:
+- stage: build
+  jobs:
+
+  - job: build_linux
+    pool:
+      vmImage: ubuntu-latest
+    strategy:
+      matrix:
+        debug:
+          configuration: Debug
+        release:
+          configuration: Release
+    steps:
+    - script: dotnet build --configuration $(configuration)
+      displayName: dotnet build
+      workingDirectory: $(slnPath)
+
+  - job: build_windows_vs
+    pool:
+      vmImage: windows-latest
+    steps:
+    - task: NuGetCommand@2
+      displayName: nuget restore
+      inputs:
+        command: 'restore'
+        restoreSolution: '$(slnPath)/*.sln'
+        feedsToUse: 'select'
+    - task: VSBuild@1
+      displayName: visual studio build
+      inputs:
+        solution: '$(slnPath)/*.sln'
+
+  - job: build_cli
+    pool:
+      vmImage: windows-latest
+    steps:
+    - script: dotnet build
+      displayName: dotnet build
+      workingDirectory: $(slnPath)
+
