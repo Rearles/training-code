@@ -15,41 +15,15 @@ variables:
 stages:
 - stage: build
   jobs:
-
-  - job: build_linux
+  - job: build
     pool:
       vmImage: ubuntu-latest
-    strategy:
-      matrix:
-        debug:
-          configuration: Debug
-        release:
-          configuration: Release
     steps:
-    - script: dotnet build --configuration $(configuration)
+
+    - script: dotnet build --configuration Release
       displayName: dotnet build
       workingDirectory: $(slnPath)
 
-  - job: build_windows_vs
-    pool:
-      vmImage: windows-latest
-    steps:
-    - task: NuGetCommand@2
-      displayName: nuget restore
-      inputs:
-        command: 'restore'
-        restoreSolution: '$(slnPath)/*.sln'
-        feedsToUse: 'select'
-    - task: VSBuild@1
-      displayName: visual studio build
-      inputs:
-        solution: '$(slnPath)/*.sln'
-
-  - job: build_cli
-    pool:
-      vmImage: windows-latest
-    steps:
-    - script: dotnet build
-      displayName: dotnet build
+    - script: dotnet test --configuration Release
+      displayName: dotnet test
       workingDirectory: $(slnPath)
-
