@@ -13,7 +13,7 @@ stages:
 - stage: build
   jobs:
 
-  - job: build-linux
+  - job: build_linux
     pool:
       vmImage: ubuntu-latest
     strategy:
@@ -27,7 +27,7 @@ stages:
       displayName: dotnet build
       workingDirectory: 05MVC/NoteTakingApp
 
-  - job: build-windows-vs
+  - job: build_windows_vs
     pool:
       vmImage: windows-latest
     steps:
@@ -36,7 +36,7 @@ stages:
       inputs:
         solution: '05MVC\NoteTakingApp\*.sln'
 
-  - job: build-cli
+  - job: build_cli
     pool:
       vmImage: windows-latest
     steps:
