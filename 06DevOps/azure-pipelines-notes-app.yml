@@ -27,3 +27,10 @@ stages:
     - script: dotnet test --configuration Release
       displayName: dotnet test
       workingDirectory: $(slnPath)
+
+      # next steps...
+      # deploying to azure app service
+      # better integration/reporting with azure pipelines?
+        # you can report test results to azure pipelines
+        # so it can show them in its GUI
+      # static analysis with a tool like sonarcloud
