@@ -3,7 +3,9 @@ July 2021 Arlington .NET / Nick Escalona
 
 ## common requirements
 
-* good git practices
+* good Git practices
+* CI with compile, automated tests, static analysis
+* CD to cloud service (like Azure App Service)
 ### functionality
 * client-side validation
 * server-side validation
