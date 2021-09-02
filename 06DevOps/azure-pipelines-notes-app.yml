@@ -7,7 +7,14 @@ trigger:
     - 05MVC/NoteTakingApp
     - 06DevOps/azure-pipelines-notes-app.yml
 
-pr: none
+pr:
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - 05MVC/NoteTakingApp
+    - 06DevOps/azure-pipelines-notes-app.yml
 
 variables:
   slnPath: 05MVC/NoteTakingApp
