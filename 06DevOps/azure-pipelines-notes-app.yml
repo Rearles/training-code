@@ -80,6 +80,7 @@ stages:
       workingDirectory: $(slnPath)
 
     - publish: $(Build.StagingDirectory)
+      displayName: publish app artifact
       artifact: app
 
       # next steps...
@@ -87,4 +88,3 @@ stages:
       # better integration/reporting with azure pipelines?
         # you can report test results to azure pipelines
         # so it can show them in its GUI
-      # static analysis with a tool like sonarcloud
