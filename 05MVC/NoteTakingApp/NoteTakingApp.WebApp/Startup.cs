@@ -51,9 +51,18 @@ namespace NoteTakingApp.WebApp
                 // "if a class asks for an IRepository, give it a Repository"
                 services.AddScoped<IRepository, Repository>();
             }
+            bool useSqlite = Configuration["UseSqlite"] == "true";
             services.AddDbContext<NotesDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("NotesDb"));
+                string connectionString = Configuration.GetConnectionString("NotesDb");
+                if (useSqlite)
+                {
+                    options.UseSqlite(connectionString);
+                }
+                else
+                {
+                    options.UseSqlServer(connectionString);
+                }
                 options.LogTo(Console.WriteLine);
             });
 
