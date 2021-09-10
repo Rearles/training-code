@@ -15,13 +15,13 @@
         - JSON, XML, content negotiation, IActionResult types, custom formatter
 - security
     - authentication, authorization
-- JavaScript
-    - ES5, ES6, types, scopes, truthy/falsy, loose equality, JSON, prototypes
-    - functions
-        - arrow, callback, closure, IIFE
 
 ---
 
 to cover someday:
 - Testing (Mock, Moq, integration testing)
 - EF lazy loading
+- JavaScript
+    - ES5, ES6, types, scopes, truthy/falsy, loose equality, JSON, prototypes
+    - functions
+        - arrow, callback, closure, IIFE
