@@ -1,0 +1,45 @@
+
+- JavaScript
+    - ES5, ES6, types, scopes, truthy/falsy, loose equality, JSON, prototypes
+    - functions
+        - arrow, callback, closure, IIFE
+    - DOM
+    - Ajax
+        - XmlHttpRequest, Fetch API, CORS, Promises
+    - events
+        - event listeners, propagation, bubbling, capturing
+    - XSS
+- Node.js
+    - NPM, npm CLI
+    - package.json, scripts, semver
+- TypeScript
+    - type annotations, interfaces, classes, modules
+    - transpilation, tsc, tsconfig.json
+- Webpack
+    - module bundler, webpack.config.js
+- Angular
+    - single-page application
+    - module
+        - root module, NgModule decorator
+    - component
+        - Component decorator
+        - template syntax
+    - directives
+        - attribute (ngClass, ngStyle, custom)
+        - structural (ngFor, ngIf, ngSwitch)
+        - components
+    - data binding
+        - data binding (interpolation, property binding, event binding, two-way binding, NgModel)
+    - service
+        - Injectable decorator
+    - HttpClient
+    - Jasmine
+    - Karma
+    - ng CLI
+    - deployment
+
+---
+
+to cover someday:
+- Testing (Mock, Moq, integration testing)
+- EF lazy loading
