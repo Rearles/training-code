@@ -1,11 +1,18 @@
 {
+  "private": true,
   "name": "ts-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "echo nothing to start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf out/* && tsc && cp src/*.html out",
+    "tsc-version": "tsc -v"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
 }
