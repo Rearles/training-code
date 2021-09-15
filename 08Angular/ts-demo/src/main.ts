@@ -1,7 +1,13 @@
+import { Message } from './message';
+import { MessageFormatter } from './message-formatter';
+
 document.addEventListener('DOMContentLoaded', () => {
-  putTextInBody('hello from ts');
+  const text = 'hello world';
+  const formatter = new MessageFormatter();
+
+  addMessage(formatter.formatMessage(text));
 });
 
-function putTextInBody(text: string) {
-  document.body.innerHTML = text;
+function addMessage(message: Message) {
+  document.body.innerHTML = message.text;
 }
