@@ -35,6 +35,7 @@ CMD [ "dotnet", "publish/ConsoleContainerWithBuild.dll" ]
 # 1. dockerize your project 0 (with build in the image)
 #    (up to either successful or failed DB connection)
 # 2. dockerize your project 1 (with build in the image)
+#    (up to either successful or failed DB connection)
 #    (pass the connection string to docker run as an environment
 #    variable with name like: "ConnectionStrings__MySqlDb")
 #    (consider why you shouldn't provide it with an ENV command
